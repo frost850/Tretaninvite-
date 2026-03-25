@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday — Anni Mastubatus Syariah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a0608;--deep:#0f090d;--surface:#160d12;--surface2:#1e1118;
+  --gold:#c9a96e;--gold-light:#e8d5a3;--gold-dim:#7a6240;
+  --cream:#f5ede0;--rose:#b06070;--rose-bright:#e8a0b0;--silver:#c8c0b8;
+  --border:rgba(201,169,110,0.18);--border-bright:rgba(201,169,110,0.45);
+  --glass:rgba(255,248,240,0.04);--text:rgba(245,237,224,0.88);
+  --text-dim:rgba(245,237,224,0.45);--text-faint:rgba(245,237,224,0.22);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Raleway',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;min-height:100vh;cursor:none}
+
+#cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
+#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,169,110,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen}
+
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+#confetti-cv{position:fixed;inset:0;z-index:1;pointer-events:none}
+
+body::after{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");opacity:.3}
+
+#music-btn{position:fixed;bottom:28px;right:28px;z-index:500;width:44px;height:44px;border-radius:50%;border:1px solid var(--border-bright);background:rgba(15,9,13,.9);color:var(--gold);font-size:16px;font-family:'Cinzel',serif;cursor:none;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(12px);transition:border-color .3s,box-shadow .3s}
+#music-btn:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(201,169,110,.2)}
+#music-btn.playing{animation:spin-slow 4s linear infinite}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+
+/* ── COVER ── */
+#cover{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 40%,#1e0f18 0%,#0a0608 100%);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+#cover.exit{opacity:0;transform:scale(1.04);pointer-events:none}
+
+.cv-corner{position:absolute;width:80px;height:80px;pointer-events:none}
+.cv-corner::before,.cv-corner::after{content:'';position:absolute;background:var(--gold);opacity:.45}
+.cv-corner::before{width:40px;height:1px}.cv-corner::after{width:1px;height:40px}
+.cv-corner.tl{top:32px;left:32px}.cv-corner.tr{top:32px;right:32px;transform:scaleX(-1)}
+.cv-corner.bl{bottom:32px;left:32px;transform:scaleY(-1)}.cv-corner.br{bottom:32px;right:32px;transform:scale(-1)}
+
+.cv-line-h{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.12),transparent)}
+.cv-line-v{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,169,110,.1),transparent)}
+
+.cv-orb{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,var(--gold) 0%,transparent 65%);opacity:var(--op,.07);width:var(--sz);height:var(--sz);left:var(--x);top:var(--y);animation:orb-drift var(--dur,8s) ease-in-out var(--dl,0s) infinite alternate}
+@keyframes orb-drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(var(--dx,20px),var(--dy,-20px)) scale(1.15)}}
+
+.cv-card{position:relative;z-index:2;text-align:center;max-width:420px;width:90%}
+.cv-eyebrow{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:28px;opacity:.7}
+.cv-divider{display:flex;align-items:center;gap:16px;margin:0 auto 24px;width:fit-content}
+.cv-div-line{height:1px;width:60px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.cv-div-gem{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 12px rgba(201,169,110,.5)}
+.cv-age{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;letter-spacing:-3px;background:linear-gradient(160deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;filter:drop-shadow(0 0 28px rgba(201,169,110,.3))}
+.cv-title{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:6px;color:var(--silver);text-transform:uppercase;margin-bottom:20px}
+.cv-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,8vw,54px);font-weight:300;font-style:italic;color:var(--cream);line-height:1.1;margin-bottom:8px;letter-spacing:1px}
+.cv-from{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase;margin-bottom:36px}
+.cv-btn{display:inline-flex;align-items:center;gap:14px;padding:13px 36px;border:1px solid var(--border-bright);background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:4px;text-transform:uppercase;cursor:none;transition:background .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.cv-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.02));transform:translateX(-101%);transition:transform .4s ease}
+.cv-btn:hover::before{transform:translateX(0)}.cv-btn:hover{box-shadow:0 0 28px rgba(201,169,110,.18);border-color:var(--gold)}
+.cv-btn-line{width:22px;height:1px;background:var(--gold);transition:width .3s}.cv-btn:hover .cv-btn-line{width:34px}
+
+/* ── MAIN ── */
+#main{position:relative;z-index:10;display:none}
+#main.on{display:block}
+
+section{padding:100px 40px;position:relative;z-index:10}
+.inner{max-width:960px;margin:0 auto}
+
+.ornament{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px}
+.orn-line{height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.orn-dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 8px rgba(201,169,110,.4)}
+.sec-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;color:var(--gold);text-align:center;text-transform:uppercase;margin-bottom:44px;opacity:.7}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .9s ease,transform .9s ease}
+.reveal-l.in{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal-r.in{opacity:1;transform:none}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 40px}
+.hero-glow{position:absolute;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.07) 0%,transparent 65%)}
+.g1{width:700px;height:700px;top:-200px;left:-200px;animation:gpulse 8s ease-in-out infinite alternate}
+.g2{width:500px;height:500px;bottom:-100px;right:-100px;animation:gpulse 10s ease-in-out 2s infinite alternate}
+@keyframes gpulse{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.14)}}
+.h-rule{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(201,169,110,.12) 20%,rgba(201,169,110,.22) 50%,rgba(201,169,110,.12) 80%,transparent 100%)}
+.deco-num{position:absolute;font-family:'Cormorant Garamond',serif;font-size:var(--fs,260px);font-weight:300;color:rgba(201,169,110,.04);pointer-events:none;line-height:1;letter-spacing:-10px;user-select:none}
+.dn1{--fs:280px;top:-40px;left:-30px}.dn2{--fs:180px;bottom:-20px;right:-10px}
+
+.hero-c{position:relative;z-index:2;text-align:center;max-width:720px}
+.h-eyebrow{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease .2s both}
+.h-name{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,12vw,108px);font-weight:300;font-style:italic;color:var(--cream);line-height:1.05;letter-spacing:2px;margin-bottom:8px;opacity:0;animation:fadeUp .9s ease .4s both}
+.h-rule-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:24px;opacity:0;animation:fadeUp .8s ease .6s both}
+.h-rule-ln{height:1px;width:100px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.h-age-tag{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--gold)}
+.h-msg{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--text-dim);line-height:1.9;max-width:520px;margin:0 auto 28px;letter-spacing:.3px;opacity:0;animation:fadeUp .8s ease .8s both}
+.h-from{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:4px;color:var(--text-faint);text-transform:uppercase;opacity:0;animation:fadeUp .8s ease 1s both}
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease 1.4s both}
+.scroll-track{width:1px;height:50px;background:rgba(201,169,110,.15);position:relative;overflow:hidden}
+.scroll-track::after{content:'';position:absolute;top:-60%;width:100%;height:55%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);animation:scroll-travel 2s ease-in-out infinite}
+@keyframes scroll-travel{0%{top:-60%}100%{top:160%}}
+.scroll-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase;writing-mode:vertical-lr}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:none}}
+
+/* ── REACTIONS ── */
+.reactions-sec{padding:80px 40px;border-top:1px solid var(--border)}
+.react-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:2px}
+.react-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 28px;border:1px solid transparent;background:transparent;cursor:none;transition:border-color .3s,background .3s;position:relative}
+.react-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%) scaleX(0);width:80%;height:1px;background:var(--gold);transition:transform .3s}
+.react-item:hover::after,.react-item.on::after{transform:translateX(-50%) scaleX(1)}
+.react-item:hover,.react-item.on{border-color:var(--border);background:var(--glass)}
+.react-icon{font-size:22px;transition:transform .2s}.react-item:hover .react-icon{transform:scale(1.12) translateY(-2px)}
+.react-num{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--gold);line-height:1}
+.react-lbl{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2.5px;color:var(--text-faint);text-transform:uppercase}
+.react-note{text-align:center;margin-top:22px;font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--text-dim);height:24px}
+
+/* ── MESSAGE ── */
+.msg-sec{padding:120px 40px;background:linear-gradient(180deg,transparent,var(--surface) 20%,var(--surface) 80%,transparent)}
+.msg-layout{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:start;gap:60px;max-width:1000px;margin:0 auto}
+.msg-side{padding-top:60px}
+.msg-side-line{width:1px;height:120px;background:linear-gradient(to bottom,transparent,var(--gold-dim),transparent);margin:0 auto 20px}
+.msg-side-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase;writing-mode:vertical-lr;margin:0 auto;display:block;text-align:center}
+.msg-big-q{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;color:var(--gold);opacity:.1;line-height:.6;margin-bottom:-20px}
+.msg-body{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;font-weight:300;line-height:1.88;color:var(--text);letter-spacing:.3px}
+.msg-sig{margin-top:32px;display:flex;align-items:center;gap:16px}
+.msg-sig-ln{height:1px;width:40px;background:var(--gold-dim)}
+.msg-sig-name{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold)}
+@media(max-width:768px){.msg-layout{grid-template-columns:1fr;gap:0}.msg-side{display:none}}
+
+/* ── 3D VIRTUAL CARD ── */
+.card3d-sec{padding:100px 40px;text-align:center}
+.card3d-wrap{perspective:1200px;display:flex;justify-content:center}
+.vcard{width:min(480px,90vw);border:1px solid var(--border);background:linear-gradient(135deg,var(--surface2) 0%,#12080f 100%);transform-style:preserve-3d;transition:transform .08s ease;cursor:none;position:relative;overflow:hidden}
+.vc-band{width:100%;padding:6px 0;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));text-align:center}
+.vc-band-txt{font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:var(--ink);font-weight:600;text-transform:uppercase}
+.vc-body{padding:44px 44px 36px}
+.vc-sm-lbl{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:18px;display:block}
+.vc-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,50px);font-weight:300;font-style:italic;color:var(--cream);line-height:1.1;margin-bottom:18px;letter-spacing:1px}
+.vc-rule{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.vc-rule-ln{flex:1;height:1px;background:var(--border)}
+.vc-rule-dia{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.vc-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:24px;text-align:left}
+.vc-footer{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border)}
+.vc-age-big{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold);line-height:1}
+.vc-from-blk{text-align:right}
+.vc-from-lbl{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase;display:block;margin-bottom:4px}
+.vc-from-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--rose-bright)}
+.vc-shimmer{position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(105deg,transparent 40%,rgba(201,169,110,.05) 50%,transparent 60%);pointer-events:none;animation:shimmer 5s ease-in-out infinite}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+.card3d-hint{margin-top:16px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase}
+
+/* ── CAKE ── */
+.cake-sec{padding:100px 40px;text-align:center}
+#cake-cv{width:min(560px,92vw);height:min(460px,62vw);display:block;margin:0 auto;border:1px solid var(--border);background:transparent;cursor:none}
+.cake-hint{margin-top:14px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase}
+
+/* ── TIMELINE ── */
+.tl-sec{padding:100px 40px}
+.tl-wrap{max-width:680px;margin:0 auto;position:relative}
+.tl-wrap::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border-bright) 15%,var(--border-bright) 85%,transparent)}
+.tl-item{padding:0 0 60px 44px;position:relative}
+.tl-dot{position:absolute;left:-5px;top:2px;width:11px;height:11px;border:1px solid var(--gold);background:var(--deep);transform:rotate(45deg);box-shadow:0 0 12px rgba(201,169,110,.3)}
+.tl-meta{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.tl-meta::after{content:'';flex:0 0 24px;height:1px;background:var(--gold-dim)}
+.tl-text{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--text);line-height:1.75}
+.tl-attr{margin-top:10px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:2px;color:var(--text-faint);text-transform:uppercase}
+
+/* ── GALLERY ── */
+.gal-sec{padding:100px 40px}
+.gal-filters{display:flex;justify-content:center;margin-bottom:48px;border:1px solid var(--border);width:fit-content;margin-left:auto;margin-right:auto}
+.gal-flt{padding:10px 24px;font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:3px;color:var(--text-faint);text-transform:uppercase;cursor:none;border:none;border-right:1px solid var(--border);background:transparent;transition:color .3s,background .3s}
+.gal-flt:last-child{border-right:none}
+.gal-flt:hover,.gal-flt.on{color:var(--gold);background:var(--glass)}
+.gal-grid{columns:3 200px;gap:12px}
+.gal-item{break-inside:avoid;margin-bottom:12px;position:relative;overflow:hidden;cursor:none;border:1px solid var(--border);transition:border-color .3s}
+.gal-item:hover{border-color:var(--border-bright)}
+.gal-ph{width:100%;padding-bottom:var(--ph,70%);position:relative;overflow:hidden}
+.gal-item:nth-child(4n+1) .gal-ph{background:linear-gradient(160deg,#1a0d14,#0f0810)}
+.gal-item:nth-child(4n+2) .gal-ph{background:linear-gradient(160deg,#0d1018,#080c14)}
+.gal-item:nth-child(4n+3) .gal-ph{background:linear-gradient(160deg,#161010,#0f0c08)}
+.gal-item:nth-child(4n+4) .gal-ph{background:linear-gradient(160deg,#0e1016,#0a0f0d)}
+.gal-ph-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;opacity:.3;transition:opacity .3s,transform .3s}
+.gal-item:hover .gal-ph-icon{opacity:.5;transform:translate(-50%,-54%) scale(1.05)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,8,.9) 0%,rgba(10,6,8,0) 50%);opacity:0;transition:opacity .35s;display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-cap{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.gal-sub{font-family:'Raleway',sans-serif;font-size:11px;color:var(--text-dim)}
+
+/* ── LIGHTBOX ── */
+#lightbox{position:fixed;inset:0;z-index:800;background:rgba(5,3,6,.96);backdrop-filter:blur(24px);display:none;align-items:center;justify-content:center}
+#lightbox.show{display:flex;animation:lb-fade .3s ease}
+@keyframes lb-fade{0%{opacity:0}100%{opacity:1}}
+.lb-close{position:absolute;top:24px;right:28px;background:none;border:1px solid var(--border);color:var(--text-dim);width:40px;height:40px;font-size:16px;cursor:none;transition:border-color .2s,color .2s}
+.lb-close:hover{border-color:var(--gold);color:var(--gold)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--border);color:var(--text-dim);width:44px;height:60px;font-size:20px;cursor:none;transition:border-color .2s,color .2s}
+.lb-nav:hover{border-color:var(--gold);color:var(--gold)}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-img-wrap img{max-width:85vw;max-height:82vh;display:block;border:1px solid var(--border)}
+.lb-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--text-faint)}
+
+/* ── FOOTER ── */
+footer{padding:80px 40px;text-align:center;border-top:1px solid var(--border);position:relative;z-index:10}
+.ft-inner{max-width:480px;margin:0 auto}
+.ft-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px}
+.ft-orn-ln{height:1px;width:60px;background:linear-gradient(90deg,transparent,var(--gold-dim))}
+.ft-orn-dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.ft-wish{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text-dim);line-height:1.85;margin-bottom:24px;letter-spacing:.3px}
+.ft-from{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+.ft-year{margin-top:48px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-faint)}
+
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);z-index:600;padding:12px 32px;border:1px solid var(--border-bright);background:var(--surface);font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;animation:toast-in .4s ease,toast-out .4s ease 2.6s both;pointer-events:none}
+@keyframes toast-in{0%{opacity:0;transform:translateX(-50%) translateY(10px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes toast-out{0%{opacity:1}100%{opacity:0}}
+
+@media(max-width:640px){section{padding:70px 24px}.gal-grid{columns:2 140px}.react-lbl{display:none}.cv-age{font-size:76px}}
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<canvas id="confetti-cv"></canvas>
+<button id="music-btn" title="Music">♫</button>
+
+<!-- COVER -->
+<div id="cover">
+  <div class="cv-corner tl"></div><div class="cv-corner tr"></div>
+  <div class="cv-corner bl"></div><div class="cv-corner br"></div>
+  <div class="cv-line-h" style="top:18%"></div>
+  <div class="cv-line-h" style="top:82%"></div>
+  <div class="cv-line-v" style="left:14%"></div>
+  <div class="cv-line-v" style="right:14%"></div>
+  <div class="cv-orb" style="--x:5%;--y:15%;--sz:320px;--op:.06;--dur:9s;--dx:30px;--dy:-18px;--dl:0s"></div>
+  <div class="cv-orb" style="--x:60%;--y:45%;--sz:400px;--op:.05;--dur:11s;--dx:-22px;--dy:24px;--dl:2s"></div>
+  <div class="cv-orb" style="--x:72%;--y:5%;--sz:200px;--op:.07;--dur:7s;--dx:-12px;--dy:28px;--dl:1s"></div>
+  <div class="cv-card">
+    <div class="cv-eyebrow">A Birthday Celebration</div>
+    <div class="cv-divider">
+      <div class="cv-div-line"></div><div class="cv-div-gem"></div><div class="cv-div-line"></div>
+    </div>
+    <div class="cv-age">26</div>
+    <div class="cv-title">Selamat Ulang Tahun</div>
+    <div class="cv-name">Anni Mastubatus Syariah</div>
+    <div class="cv-from">Dipersembahkan oleh Dewanata</div>
+    <button class="cv-btn" onclick="openCard()">
+      <div class="cv-btn-line"></div>
+      <span>Buka Kartu</span>
+      <div class="cv-btn-line"></div>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+  <section id="hero">
+    <div class="hero-glow g1"></div><div class="hero-glow g2"></div>
+    <div class="h-rule" style="top:80px"></div>
+    <div class="h-rule" style="bottom:80px"></div>
+    <div class="deco-num dn1">26</div>
+    <div class="deco-num dn2">II</div>
+    <div class="hero-c">
+      <div class="h-eyebrow">The Twenty-Sixth Year</div>
+      <h1 class="h-name">Anni Mastubatus Syariah</h1>
+      <div class="h-rule-row">
+        <div class="h-rule-ln"></div>
+        <div class="h-age-tag">XXVI · Anno</div>
+        <div class="h-rule-ln"></div>
+      </div>
+      <p class="h-msg">Di hari yang paling istimewa ini, Anni — semoga setiap langkah yang kamu tapaki di usia ke-26 dipenuhi keberanian, kebijaksanaan, dan kebahagiaan yang tak terhingga. Kamu layak mendapatkan semua keindahan yang dunia bisa tawarkan.</p>
+      <div class="h-from">Dengan segenap doa — Dewanata</div>
+    </div>
+    <div class="scroll-ind">
+      <div class="scroll-track"></div>
+      <div class="scroll-lbl">Gulir</div>
+    </div>
+  </section>
+
+  <section class="reactions-sec">
+    <div class="inner">
+      <div class="ornament reveal"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+      <div class="sec-lbl reveal">Berikan Reaksimu</div>
+      <div class="react-grid reveal">
+        <div class="react-item" onclick="doReact(this,'❤️','Cinta')"><div class="react-icon">❤️</div><div class="react-num">24</div><div class="react-lbl">Cinta</div></div>
+        <div class="react-item" onclick="doReact(this,'🎂','Kue')"><div class="react-icon">🎂</div><div class="react-num">18</div><div class="react-lbl">Kue</div></div>
+        <div class="react-item" onclick="doReact(this,'🥂','Toast')"><div class="react-icon">🥂</div><div class="react-num">31</div><div class="react-lbl">Toast</div></div>
+        <div class="react-item" onclick="doReact(this,'🌹','Bunga')"><div class="react-icon">🌹</div><div class="react-num">12</div><div class="react-lbl">Bunga</div></div>
+        <div class="react-item" onclick="doReact(this,'✨','Bintang')"><div class="react-icon">✨</div><div class="react-num">9</div><div class="react-lbl">Bintang</div></div>
+      </div>
+      <div class="react-note reveal" id="react-note"></div>
+    </div>
+  </section>
+
+  <section class="msg-sec">
+    <div class="msg-layout">
+      <div class="msg-side reveal-l"><div class="msg-side-line"></div><span class="msg-side-text">Pesan dari Hati</span></div>
+      <div class="msg-center reveal">
+        <div class="ornament"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+        <div class="sec-lbl" style="margin-bottom:28px">Ucapan Tulus</div>
+        <div class="msg-big-q">"</div>
+        <div class="msg-body">Anni, kamu adalah seseorang yang membawa kehangatan dan semangat ke setiap ruang yang kamu masuki. Di usia ke-26 ini, aku berharap kamu terus tumbuh menjadi versi terbaik dirimu — lebih kuat, lebih bijaksana, dan semakin bersinar. Setiap doa yang kamu panjatkan, setiap impian yang kamu kejar, semoga alam semesta membalasnya dengan keajaiban yang lebih indah dari yang pernah kamu bayangkan. Selamat ulang tahun, Anni. Terima kasih sudah hadir dan menginspirasi.</div>
+        <div class="msg-sig"><div class="msg-sig-ln"></div><div class="msg-sig-name">Dewanata</div></div>
+      </div>
+      <div class="msg-side reveal-r"><div class="msg-side-line"></div><span class="msg-side-text">With Love</span></div>
+    </div>
+  </section>
+
+  <section class="card3d-sec">
+    <div class="inner">
+      <div class="ornament reveal"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+      <div class="sec-lbl reveal">Kartu Virtual</div>
+      <div class="card3d-wrap reveal">
+        <div class="vcard" id="vcard">
+          <div class="vc-shimmer"></div>
+          <div class="vc-band"><span class="vc-band-txt">Happy Birthday · Selamat Ulang Tahun · Bon Anniversaire</span></div>
+          <div class="vc-body">
+            <span class="vc-sm-lbl">A Celebration of</span>
+            <div class="vc-name">Anni Mastubatus Syariah</div>
+            <div class="vc-rule"><div class="vc-rule-ln"></div><div class="vc-rule-dia"></div><div class="vc-rule-ln"></div></div>
+            <p class="vc-quote">"Semoga di usia ke-26 ini, setiap langkahmu dipenuhi berkah, setiap doamu dikabulkan, dan setiap mimpimu menjadi kenyataan yang indah."</p>
+            <div class="vc-footer">
+              <div class="vc-age-big">26</div>
+              <div class="vc-from-blk"><span class="vc-from-lbl">Dari</span><span class="vc-from-name">Dewanata</span></div>
+            </div>
+          </div>
+          <div class="vc-band" style="opacity:.45"><span class="vc-band-txt">♦ ♦ ♦</span></div>
+        </div>
+      </div>
+      <div class="card3d-hint reveal">Gerakkan untuk efek tiga dimensi</div>
+    </div>
+  </section>
+
+  <section class="cake-sec">
+    <div class="inner">
+      <div class="ornament reveal"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+      <div class="sec-lbl reveal">Model Interaktif</div>
+      <canvas id="cake-cv" class="reveal"></canvas>
+      <div class="cake-hint reveal">Seret untuk memutar · Gulir untuk memperbesar</div>
+    </div>
+  </section>
+
+  <section class="tl-sec">
+    <div class="inner">
+      <div class="ornament reveal"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+      <div class="sec-lbl reveal">Doa &amp; Harapan</div>
+      <div class="tl-wrap" id="tl-wrap"></div>
+    </div>
+  </section>
+
+  <section class="gal-sec">
+    <div class="inner">
+      <div class="ornament reveal"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+      <div class="sec-lbl reveal">Galeri Kenangan</div>
+      <div class="gal-filters reveal" id="gal-filters">
+        <button class="gal-flt on" onclick="filterGal('all',this)">Semua</button>
+        <button class="gal-flt" onclick="filterGal('moments',this)">Momen</button>
+        <button class="gal-flt" onclick="filterGal('travel',this)">Perjalanan</button>
+        <button class="gal-flt" onclick="filterGal('celebrate',this)">Perayaan</button>
+      </div>
+      <div class="gal-grid reveal" id="gal-grid"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft-inner reveal">
+      <div class="ft-orn"><div class="ft-orn-ln"></div><div class="ft-orn-dia"></div><div class="ft-orn-ln"></div></div>
+      <div class="ft-wish">Semoga setiap fajar membawa harapan baru untukmu, Anni,<br>dan setiap senja menjadi syukur yang indah di usia ke-26 ini.</div>
+      <div class="ft-from">Dewanata · 2026</div>
+      <div class="ft-year">With Love · In Perpetuity</div>
+    </div>
+  </footer>
+</div>
+
+<div id="lightbox" onclick="lbBgClick(event)">
+  <button class="lb-close" onclick="lbClose()">✕</button>
+  <button class="lb-nav lb-prev" onclick="lbPrev()">‹</button>
+  <button class="lb-nav lb-next" onclick="lbNext()">›</button>
+  <div class="lb-img-wrap"><img id="lb-img" src="" alt=""></div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+<div id="yt-holder" style="position:fixed;bottom:-9999px;left:-9999px;width:200px;height:113px;pointer-events:none;opacity:0;overflow:hidden" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script>
+/* CURSOR */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;cur.style.left=cx+'px';cur.style.top=cy+'px'});
+(function tr(){requestAnimationFrame(tr);rx+=(cx-rx)*.13;ry+=(cy-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px'})();
+
+/* BG CANVAS */
+(function(){
+  const cv=document.getElementById('bg-canvas'),ctx=cv.getContext('2d');
+  function resize(){cv.width=window.innerWidth;cv.height=window.innerHeight}
+  resize();window.addEventListener('resize',()=>{resize();init()});
+  let pts=[];
+  function init(){pts=[];const n=Math.floor(cv.width*cv.height/13000);for(let i=0;i<n;i++)pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.1+.25,g:Math.random()<.3})}
+  init();
+  (function draw(){requestAnimationFrame(draw);ctx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.g?'rgba(201,169,110,.5)':'rgba(200,192,184,.35)';ctx.fill()});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(201,169,110,${.055*(1-d/90)})`;ctx.lineWidth=.5;ctx.stroke()}}
+  })();
+})();
+
+/* CONFETTI */
+(function(){
+  const cv=document.getElementById('confetti-cv'),ctx=cv.getContext('2d');
+  cv.width=window.innerWidth;cv.height=window.innerHeight;
+  window.addEventListener('resize',()=>{cv.width=window.innerWidth;cv.height=window.innerHeight});
+  let pieces=[],active=false;
+  const cols=['#c9a96e','#e8d5a3','#c8c0b8','#b06070','#f5ede0','#7a6240'];
+  window.launchConfetti=function(){active=true;pieces=[];for(let i=0;i<140;i++)pieces.push({x:Math.random()*cv.width,y:-20,vx:(Math.random()-.5)*3,vy:Math.random()*3+1.5,w:Math.random()*9+4,h:Math.random()*4+2,color:cols[Math.floor(Math.random()*cols.length)],ang:Math.random()*360,va:(Math.random()-.5)*5,life:1});setTimeout(()=>active=false,5500)};
+  (function loop(){requestAnimationFrame(loop);if(!active){ctx.clearRect(0,0,cv.width,cv.height);return}ctx.clearRect(0,0,cv.width,cv.height);pieces.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.ang+=p.va;p.vy+=.06;p.life-=.0025;if(p.y>cv.height+20){p.y=-10;p.x=Math.random()*cv.width;p.life=1}ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.ang*Math.PI/180);ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore()})})();
+})();
+
+/* THREE.JS CAKE */
+(function(){
+  const cv=document.getElementById('cake-cv');if(!cv)return;
+  const W=cv.offsetWidth||520,H=cv.offsetHeight||420;
+  const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  renderer.setSize(W,H);renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(45,W/H,.1,500);
+  camera.position.set(0,10,26);camera.lookAt(0,3,0);
+  scene.add(new THREE.AmbientLight(0xfff5e0,.25));
+  const key=new THREE.DirectionalLight(0xfff5e0,1.1);key.position.set(8,18,12);key.castShadow=true;scene.add(key);
+  scene.add(Object.assign(new THREE.DirectionalLight(0xc9a96e,.3),{position:new THREE.Vector3(-10,5,-8)}));
+  scene.add(Object.assign(new THREE.PointLight(0xb06070,.5,40),{position:new THREE.Vector3(0,15,0)}));
+  const group=new THREE.Group();
+  const mk=(geo,col,shin=30,spec=0x222222)=>new THREE.MeshPhongMaterial({color:col,shininess:shin,specular:spec});
+  // Tiers
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(5,5.3,3.2,48),mk(0,0x1a0d12,30,0x3a1a20)),{position:new THREE.Vector3(0,1.6,0),castShadow:true}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.TorusGeometry(5,.28,10,48),mk(0,0xc9a96e,120,0xe8d5a3)),{position:new THREE.Vector3(0,3.2,0),rotation:new THREE.Euler(Math.PI/2,0,0)}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(5.02,5.02,.3,48,1,true),new THREE.MeshPhongMaterial({color:0xc9a96e,shininess:150,side:THREE.DoubleSide})),{position:new THREE.Vector3(0,1.8,0)}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(3.4,3.6,2.6,48),mk(0,0x12100a,25,0x2a2010)),{position:new THREE.Vector3(0,4.5,0),castShadow:true}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.TorusGeometry(3.4,.24,10,48),mk(0,0xc9a96e,120,0xe8d5a3)),{position:new THREE.Vector3(0,5.8,0),rotation:new THREE.Euler(Math.PI/2,0,0)}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(3.42,3.42,.25,48,1,true),new THREE.MeshPhongMaterial({color:0xc9a96e,shininess:150,side:THREE.DoubleSide})),{position:new THREE.Vector3(0,4.7,0)}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(2,2.1,2,48),mk(0,0x0d1018,25,0x10182a)),{position:new THREE.Vector3(0,7,0),castShadow:true}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.TorusGeometry(2,.2,10,48),mk(0,0xc9a96e,120,0xe8d5a3)),{position:new THREE.Vector3(0,8,0),rotation:new THREE.Euler(Math.PI/2,0,0)}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(6.2,6.6,.25,60),mk(0,0x1e1810,200,0xc9a96e)),{position:new THREE.Vector3(0,.12,0),receiveShadow:true}));
+  group.add(Object.assign(new THREE.Mesh(new THREE.TorusGeometry(6.4,.15,8,60),mk(0,0xc9a96e,150,0xe8d5a3)),{position:new THREE.Vector3(0,.12,0),rotation:new THREE.Euler(Math.PI/2,0,0)}));
+  const topM=new THREE.MeshPhongMaterial({color:0xc9a96e,shininess:200,specular:0xfff5d0,emissive:0x3a2a00,emissiveIntensity:.2});
+  const topper=new THREE.Mesh(new THREE.OctahedronGeometry(1,0),topM);topper.position.y=10.2;group.add(topper);
+  const tLight=new THREE.PointLight(0xc9a96e,.6,6);tLight.position.y=10.5;group.add(tLight);
+  const cMat=new THREE.MeshPhongMaterial({color:0xf5ede0,shininess:60});
+  const flames=[];
+  [[-1.1,.1],[-.3,-.7],[.6,-.1],[1,.8],[-.1,.9]].forEach(([x,z],i)=>{
+    group.add(Object.assign(new THREE.Mesh(new THREE.CylinderGeometry(.1,.12,1.1,12),cMat),{position:new THREE.Vector3(x,9.1,z)}));
+    const fl=new THREE.Mesh(new THREE.SphereGeometry(.16,.12,.12,8),new THREE.MeshBasicMaterial({color:0xffc060}));
+    fl.position.set(x,9.9,z);fl.name='f'+i;group.add(fl);flames.push(fl);
+    const fL=new THREE.PointLight(0xffa030,.15,4);fL.position.set(x,10,z);group.add(fL);
+  });
+  for(let i=0;i<20;i++){const p=new THREE.Mesh(new THREE.SphereGeometry(.1,8,8),new THREE.MeshPhongMaterial({color:0xf5ede0,shininess:200,specular:0xffffff}));const a=(i/20)*Math.PI*2;p.position.set(Math.cos(a)*4.85,3.22,Math.sin(a)*4.85);group.add(p)}
+  scene.add(group);
+  const sp=new Float32Array(600*3);for(let i=0;i<600;i++){sp[i*3]=(Math.random()-.5)*200;sp[i*3+1]=(Math.random()-.5)*200;sp[i*3+2]=(Math.random()-.5)*150}
+  const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+  scene.add(new THREE.Points(sg,new THREE.PointsMaterial({size:.6,color:0xc9a96e,transparent:true,opacity:.35})));
+  let drag=false,px=0,py=0,ry=0,rx=0,tRy=0,tRx=0,zoom=26;
+  cv.addEventListener('mousedown',e=>{drag=true;px=e.clientX;py=e.clientY});
+  window.addEventListener('mouseup',()=>drag=false);
+  window.addEventListener('mousemove',e=>{if(!drag)return;tRy+=(e.clientX-px)*.012;tRx+=(e.clientY-py)*.007;px=e.clientX;py=e.clientY});
+  cv.addEventListener('wheel',e=>{zoom=Math.max(12,Math.min(40,zoom+e.deltaY*.025));e.preventDefault()},{passive:false});
+  cv.addEventListener('touchstart',e=>{drag=true;px=e.touches[0].clientX;py=e.touches[0].clientY},{passive:true});
+  cv.addEventListener('touchmove',e=>{if(!drag)return;tRy+=(e.touches[0].clientX-px)*.012;tRx+=(e.touches[0].clientY-py)*.007;px=e.touches[0].clientX;py=e.touches[0].clientY},{passive:true});
+  cv.addEventListener('touchend',()=>drag=false);
+  window.addEventListener('resize',()=>{const nW=cv.offsetWidth,nH=cv.offsetHeight;renderer.setSize(nW,nH);camera.aspect=nW/nH;camera.updateProjectionMatrix()});
+  let t=0;
+  (function anim(){requestAnimationFrame(anim);t+=.008;ry+=(tRy-ry)*.08;rx+=(tRx-rx)*.08;group.rotation.y=t*.18+ry;group.rotation.x=rx;topper.rotation.y=t*1.2;topper.rotation.x=t*.7;camera.position.set(Math.sin(t*.05)*2,10,zoom);camera.lookAt(0,4,0);flames.forEach((f,i)=>{f.scale.set(.9+Math.sin(t*7+i)*.12,1+Math.cos(t*6+i)*.18,.9+Math.sin(t*8+i)*.1)});renderer.render(scene,camera)})();
+})();
+
+/* OPEN CARD */
+function openCard(){
+  document.getElementById('cover').classList.add('exit');
+  setTimeout(()=>{
+    document.getElementById('cover').style.display='none';
+    document.getElementById('main').classList.add('on');
+    launchConfetti();initReveal();buildTimeline();buildGallery();window._autoPlayMusic();
+  },900);
+}
+
+/* REVEAL */
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+}
+
+/* 3D TILT */
+const vcard=document.getElementById('vcard');
+vcard.addEventListener('mousemove',e=>{const r=vcard.getBoundingClientRect();const x=(e.clientX-r.left-r.width/2)/r.width,y=(e.clientY-r.top-r.height/2)/r.height;vcard.style.transform=`perspective(1200px) rotateY(${x*18}deg) rotateX(${-y*12}deg) scale(1.02)`});
+vcard.addEventListener('mouseleave',()=>{vcard.style.transform=''});
+
+/* REACTIONS */
+function doReact(el,emoji,lbl){const on=el.classList.toggle('on');const n=el.querySelector('.react-num');n.textContent=parseInt(n.textContent)+(on?1:-1);document.getElementById('react-note').textContent=on?`Reaksi ${emoji} tersampaikan — Terima kasih.`:'';}
+
+/* TIMELINE */
+const tlData=[
+  {from:'Dewanata',text:'Anni, kehadiranmu selalu membawa warna tersendiri dalam hari-hariku. Semoga di usiamu yang ke-26 ini, hidupmu semakin penuh makna, berkah, dan kebahagiaan yang tiada habisnya.'},
+  {from:'Dewanata',text:'Semoga di tahun barumu ini setiap langkah yang kamu ambil selalu diiringi cahaya — setiap doa yang kamu panjatkan dijawab semesta dengan cara yang paling indah dan tak terduga.'},
+  {from:'Dewanata',text:'Kamu adalah salah satu manusia langka yang membuat dunia di sekitarnya terasa lebih hangat dan lebih berarti. Semoga semua kebaikan yang kamu tebarkan kembali kepadamu berlipat ganda.'},
+  {from:'Dewanata',text:'Di usiamu yang baru ini, semoga pintu-pintu kesempatan terbuka lebar — karier yang gemilang, hati yang senantiasa tenteram, dan orang-orang tercinta yang selalu memelukmu dengan cinta tulus.'},
+  {from:'Dewanata',text:'Anni, semoga kesehatan selalu menyertaimu lahir dan batin, semangatmu tak pernah padam meski ujian datang silih berganti, dan senyummu menjadi cahaya bagi siapa pun yang berjumpa denganmu.'},
+  {from:'Dewanata',text:'Terima kasih sudah menjadi dirimu sendiri — jujur, kuat, dan penuh semangat yang menular. Semoga tahun ke-26 ini menjadi tahun penuh pencapaian, cinta, dan kenangan manis yang akan selalu kamu syukuri.'},
+  {from:'Dewanata',text:'Selamat ulang tahun, Anni. Di hari yang penuh berkat ini, percayakanlah setiap mimpimu kepada Yang Kuasa, dan nikmatilah setiap detik kehidupan luar biasa yang telah dianugerahkan untukmu.'}
+];
+function buildTimeline(){const w=document.getElementById('tl-wrap');tlData.forEach((d,i)=>{w.innerHTML+=`<div class="tl-item reveal" style="transition-delay:${i*.1}s"><div class="tl-dot"></div><div class="tl-meta">Harapan ${String(i+1).padStart(2,'0')}</div><div class="tl-text">"${d.text}"</div><div class="tl-attr">— ${d.from}</div></div>`})}
+
+/* GALLERY */
+const galData=[
+  {icon:'🌸',cap:'Momen Spesial',sub:'Kenangan abadi',cat:'moments',ph:'90%'},
+  {icon:'✈️',cap:'Perjalanan',sub:'Petualangan baru',cat:'travel',ph:'65%'},
+  {icon:'🥂',cap:'Perayaan',sub:'Bersama orang tercinta',cat:'celebrate',ph:'75%'},
+  {icon:'🌅',cap:'Senja Emas',sub:'Keindahan alam',cat:'travel',ph:'85%'},
+  {icon:'💐',cap:'Hadiah Bunga',sub:'Tanda cinta',cat:'moments',ph:'70%'},
+  {icon:'🎂',cap:'Kue Ulang Tahun',sub:'Manis seperti dirimu',cat:'celebrate',ph:'60%'},
+  {icon:'🌿',cap:'Alam Terbuka',sub:'Ketenangan jiwa',cat:'travel',ph:'80%'},
+  {icon:'💌',cap:'Surat Cinta',sub:'Dari hati',cat:'moments',ph:'68%'},
+  {icon:'🕯️',cap:'Malam Istimewa',sub:'Penuh kenangan',cat:'celebrate',ph:'88%'},
+];
+let lbIdx=0,lbV=[];
+function buildGallery(f='all'){const g=document.getElementById('gal-grid');g.innerHTML='';lbV=f==='all'?[...galData]:galData.filter(d=>d.cat===f);lbV.forEach((d,i)=>{const div=document.createElement('div');div.className='gal-item';div.style.transitionDelay=(i*.06)+'s';div.onclick=()=>lbOpen(i);div.innerHTML=`<div class="gal-ph" style="--ph:${d.ph}"><div class="gal-ph-icon">${d.icon}</div></div><div class="gal-overlay"><div class="gal-cap">${d.cap}</div><div class="gal-sub">${d.sub}</div></div>`;g.appendChild(div)})}
+function filterGal(cat,btn){document.querySelectorAll('.gal-flt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');buildGallery(cat)}
+
+/* LIGHTBOX */
+function lbOpen(i){lbIdx=i;document.getElementById('lightbox').classList.add('show');lbShow()}
+function lbShow(){const d=lbV[lbIdx];document.getElementById('lb-img').src=`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='440'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%231a0d14'/><stop offset='1' stop-color='%230a0608'/></linearGradient></defs><rect width='640' height='440' fill='url(%23g)'/><text x='320' y='220' font-size='80' text-anchor='middle'>${encodeURIComponent(d.icon)}</text><text x='320' y='300' font-size='20' fill='%23c9a96e' font-family='Georgia,serif' text-anchor='middle'>${encodeURIComponent(d.cap)}</text><text x='320' y='330' font-size='13' fill='%237a6240' font-family='sans-serif' text-anchor='middle'>${encodeURIComponent(d.sub)}</text></svg>`;document.getElementById('lb-counter').textContent=`${lbIdx+1} / ${lbV.length}`}
+function lbClose(){document.getElementById('lightbox').classList.remove('show')}
+function lbPrev(){lbIdx=(lbIdx-1+lbV.length)%lbV.length;lbShow()}
+function lbNext(){lbIdx=(lbIdx+1)%lbV.length;lbShow()}
+function lbBgClick(e){if(e.target===document.getElementById('lightbox'))lbClose()}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('show'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')lbPrev();if(e.key==='ArrowRight')lbNext()});
+
+/* MUSIC — YouTube IFrame API (144p auto-play) */
+let ytPlayer=null,ytReady=false,playing=false,playQueued=false;
+function _doPlay(){ytPlayer.setPlaybackQuality('tiny');ytPlayer.playVideo();playing=true;document.getElementById('music-btn').classList.add('playing');}
+window.onYouTubeIframeAPIReady=function(){ytPlayer=new YT.Player('yt-holder',{width:200,height:113,videoId:'3ddmPYQk_Fs',playerVars:{autoplay:0,controls:0,loop:1,playlist:'3ddmPYQk_Fs',rel:0,modestbranding:1,vq:'tiny'},events:{onReady:()=>{ytReady=true;ytPlayer.setPlaybackQuality('tiny');if(playQueued)_doPlay();},onStateChange:e=>{if(e.data===YT.PlayerState.PLAYING)ytPlayer.setPlaybackQuality('tiny');}}});};
+(function(){const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s)})();
+document.getElementById('music-btn').onclick=function(){if(!ytReady)return;playing=!playing;if(playing)_doPlay();else{ytPlayer.pauseVideo();this.classList.remove('playing');}};
+window._autoPlayMusic=function(){if(ytReady)_doPlay();else playQueued=true;};
+
+/* PARALLAX GLOWS */
+window.addEventListener('mousemove',e=>{const mx=e.clientX/window.innerWidth-.5,my=e.clientY/window.innerHeight-.5;const g1=document.querySelector('.hero-glow.g1'),g2=document.querySelector('.hero-glow.g2');if(g1)g1.style.transform=`translate(${mx*20}px,${my*14}px)`;if(g2)g2.style.transform=`translate(${mx*-16}px,${my*-12}px)`});
+</script>
+</body>
+</html>

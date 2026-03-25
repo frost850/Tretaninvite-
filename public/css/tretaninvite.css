@@ -1,0 +1,335 @@
+/* ═══════════════════════════════════════════════════════════════
+   TretanInvite — Shared Design System
+   Import: <link rel="stylesheet" href="/css/tretaninvite.css">
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+
+/* ─── Page dark background ─── */
+.ti-bg {
+    background: linear-gradient(135deg, #0f0c29, #1a1040, #0f0c29);
+    min-height: 100vh;
+    position: relative;
+}
+.ti-bg::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(167,139,250,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(245,158,11,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(236,72,153,.08) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+}
+
+/* Hero variant (full-page dark gradient, matches welcome.blade) */
+.bg-hero {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    position: relative;
+}
+.bg-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(167,139,250,.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(251,191,36,.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 80%, rgba(236,72,153,.12) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ─── Stars ─── */
+.stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.star {
+    position: fixed;
+    background: #fff;
+    border-radius: 50%;
+    animation: ti-twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+    pointer-events: none;
+    z-index: 0;
+}
+@keyframes ti-twinkle {
+    0%, 100% { opacity: 0.08; transform: scale(1); }
+    50%       { opacity: 0.75; transform: scale(1.5); }
+}
+
+/* ─── Floating cards (hero decoration) ─── */
+.card-float {
+    animation: ti-float var(--dur, 6s) ease-in-out infinite var(--dl, 0s);
+}
+@keyframes ti-float {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50%       { transform: translateY(-18px) rotate(var(--r, 0deg)); }
+}
+
+/* ─── Navbar ─── */
+.ti-navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    background: rgba(15, 12, 41, .7);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+/* keep backward-compat alias used in welcome.blade */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    background: rgba(15, 12, 41, .65);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+/* ─── Z-layer util ─── */
+.ti-inner { position: relative; z-index: 1; }
+
+/* ─── Gradient text ─── */
+.ti-gradient-text {
+    background: linear-gradient(135deg, #f59e0b, #ef4444, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── Glow button ─── */
+.btn-glow {
+    position: relative;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    box-shadow: 0 0 20px rgba(245, 158, 11, .45), 0 4px 20px rgba(0, 0, 0, .3);
+    transition: transform .15s, box-shadow .15s;
+    color: #fff;
+    display: inline-block;
+}
+.btn-glow:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 36px rgba(245, 158, 11, .65), 0 8px 30px rgba(0, 0, 0, .35);
+    color: #fff;
+    text-decoration: none;
+}
+.btn-glow:active { transform: scale(.97); }
+.btn-glow::before {
+    content: '';
+    position: absolute; inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #f59e0b, #ef4444, #a78bfa);
+    z-index: -1; filter: blur(10px); opacity: .65;
+    animation: ti-glow-pulse 2.5s ease-in-out infinite;
+}
+@keyframes ti-glow-pulse {
+    0%, 100% { filter: blur(10px); opacity: .45; }
+    50%       { filter: blur(18px); opacity: .85; }
+}
+
+/* ─── Glass card (generic) ─── */
+.ti-card {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+}
+.ti-card:hover {
+    border-color: rgba(255, 255, 255, .16);
+}
+
+/* ─── Feature cards (3D hover via JS) ─── */
+.feat-card {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform .3s cubic-bezier(.25, .46, .45, .94), box-shadow .3s;
+    transform-style: preserve-3d;
+    cursor: default;
+}
+.feat-card:hover {
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .12);
+}
+.feat-card .icon-3d {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px; border-radius: 16px; font-size: 26px; margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .2);
+    transform: translateZ(20px);
+}
+
+/* ─── Package cards ─── */
+.pkg-card {
+    border-radius: 24px;
+    transition: transform .3s ease, box-shadow .3s;
+    transform-style: preserve-3d;
+}
+.pkg-card:hover { transform: translateY(-12px) scale(1.02); }
+.pkg-card.featured {
+    box-shadow: 0 0 0 2px #f59e0b, 0 30px 80px rgba(245, 158, 11, .25);
+}
+.pkg-card.featured:hover {
+    box-shadow: 0 0 0 2px #f59e0b, 0 40px 100px rgba(245, 158, 11, .35);
+}
+
+/* ─── Template cards (3D tilt via JS) ─── */
+.tmpl-card {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px; overflow: hidden;
+    transition: transform .3s cubic-bezier(.25, .46, .45, .94), box-shadow .3s, border-color .3s;
+    transform-style: preserve-3d;
+}
+.tmpl-card:hover {
+    border-color: rgba(255, 255, 255, .18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .1);
+}
+.tmpl-card .preview-area, .preview-area {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; font-size: 52px;
+}
+.tmpl-card .preview-area::after, .preview-area::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, .5));
+}
+
+/* ─── Package mini summary cards ─── */
+.pkg-mini {
+    border-radius: 16px; padding: 16px; text-align: center;
+    transition: transform .25s, box-shadow .25s;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .04);
+}
+.pkg-mini:hover { transform: translateY(-4px); }
+
+/* ─── Input / select (dark) ─── */
+.ti-input {
+    width: 100%;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 12px;
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 14px;
+    transition: border-color .2s, box-shadow .2s;
+    font-family: inherit;
+}
+.ti-input:focus {
+    outline: none;
+    border-color: rgba(167, 139, 250, .5);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, .12);
+}
+.ti-input::placeholder { color: rgba(255, 255, 255, .3); }
+
+/* dark select arrow */
+select.ti-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff60' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    padding-right: 36px;
+    cursor: pointer;
+}
+select.ti-input option {
+    background: #1a1040; color: #fff;
+}
+textarea.ti-input { resize: vertical; min-height: 90px; }
+
+/* ─── Label ─── */
+.ti-label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: rgba(255, 255, 255, .55); margin-bottom: 6px; letter-spacing: .3px;
+}
+
+/* ─── Form section divider ─── */
+.ti-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, .07);
+    border: none; margin: 0;
+}
+
+/* ─── Scroll reveal ─── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── Tab pill (category toggle) ─── */
+.tab-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 100px; font-weight: 700; font-size: 15px;
+    border: 1px solid transparent; cursor: pointer; transition: all .2s;
+}
+.tab-pill.active-wedding {
+    background: linear-gradient(135deg, rgba(167,139,250,.2), rgba(99,102,241,.2));
+    border-color: rgba(167,139,250,.4); color: #c4b5fd;
+    box-shadow: 0 0 20px rgba(167,139,250,.15);
+}
+.tab-pill.active-birthday {
+    background: linear-gradient(135deg, rgba(236,72,153,.2), rgba(244,114,182,.2));
+    border-color: rgba(236,72,153,.4); color: #f9a8d4;
+    box-shadow: 0 0 20px rgba(236,72,153,.15);
+}
+.tab-pill.inactive {
+    color: rgba(255,255,255,.4); background: rgba(255,255,255,.04);
+    border-color: rgba(255,255,255,.06);
+}
+.tab-pill.inactive:hover { color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+
+/* ─── Marquee (welcome page) ─── */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-inner { animation: marquee 18s linear infinite; display: flex; gap: 32px; }
+.marquee-inner:hover { animation-play-state: paused; }
+
+/* ─── Scroll indicator (welcome page) ─── */
+.scroll-mouse {
+    width: 26px; height: 40px;
+    border: 2px solid rgba(255,255,255,.4); border-radius: 13px;
+    display: flex; justify-content: center; padding-top: 7px;
+}
+.scroll-dot {
+    width: 4px; height: 8px;
+    background: #fff; border-radius: 2px;
+    animation: ti-scrollDown 1.8s ease-in-out infinite;
+}
+@keyframes ti-scrollDown {
+    0%   { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* ─── Compare modal ─── */
+.ti-modal-bg { background: rgba(0,0,0,.75); backdrop-filter: blur(8px); }
+.ti-modal-box {
+    background: linear-gradient(160deg, #1a1040, #12091f);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,.6);
+}
+
+/* ─── Alert / flash messages ─── */
+.ti-alert-error {
+    background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.3);
+    border-radius: 12px; padding: 12px 16px; color: #fca5a5; font-size: 14px;
+}
+.ti-alert-success {
+    background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.3);
+    border-radius: 12px; padding: 12px 16px; color: #86efac; font-size: 14px;
+}
+
+/* ─── Perspective wrap ─── */
+.perspective-wrap { perspective: 1200px; }
+
+/* ─── Aliases (backward compat for packages/index, orders/create, etc.) ─── */
+.page-bg { background: linear-gradient(135deg, #0f0c29, #1a1040, #0f0c29); min-height: 100vh; position: relative; }
+.page-bg::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(167,139,250,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(245,158,11,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(236,72,153,.08) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+}
+.inner { position: relative; z-index: 1; }
+.modal-bg { background: rgba(0,0,0,.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.modal-box {
+    background: linear-gradient(160deg, #1a1040, #12091f);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,.6);
+}
+.card-body { padding: 18px; }

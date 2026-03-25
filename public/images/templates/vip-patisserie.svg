@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fce4ec"/>
+      <stop offset="50%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#e0f5f3"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f4a7b9"/>
+      <stop offset="100%" stop-color="#c5b8e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Petal decorations -->
+  <text x="20" y="60" font-size="20" opacity=".35" transform="rotate(-15,20,60)">🌸</text>
+  <text x="250" y="40" font-size="16" opacity=".3" transform="rotate(20,250,40)">🌷</text>
+  <text x="10" y="220" font-size="14" opacity=".25" transform="rotate(-10,10,220)">🌺</text>
+  <text x="265" y="180" font-size="18" opacity=".3" transform="rotate(15,265,180)">🌼</text>
+  <text x="30" y="400" font-size="16" opacity=".25" transform="rotate(-20,30,400)">🌸</text>
+  <text x="255" y="420" font-size="14" opacity=".3" transform="rotate(10,255,420)">🌷</text>
+
+  <!-- Top eyebrow -->
+  <text x="150" y="38" text-anchor="middle" font-size="8" fill="#c5b8e8" letter-spacing="3" font-family="sans-serif">✿ VIP PATISSERIE ✿</text>
+  <rect x="70" y="42" width="160" height=".8" fill="url(#rose)" opacity=".5"/>
+
+  <!-- Hero frames overlapping -->
+  <rect x="58" y="55" width="85" height="110" rx="42" fill="#f9c8d8" stroke="#f4a7b9" stroke-width="2"/>
+  <rect x="68" y="63" width="65" height="94" rx="32" fill="#fce4ec"/>
+  <ellipse cx="100" cy="130" rx="18" ry="25" fill="#f4a7b9" opacity=".5"/>
+  <circle cx="100" cy="105" r="12" fill="#f4a7b9" opacity=".5"/>
+
+  <rect x="158" y="65" width="85" height="110" rx="42" fill="#e8e0f8" stroke="#c5b8e8" stroke-width="2"/>
+  <rect x="168" y="73" width="65" height="94" rx="32" fill="#f3e8ff"/>
+  <ellipse cx="200" cy="140" rx="18" ry="25" fill="#c5b8e8" opacity=".5"/>
+  <circle cx="200" cy="115" r="12" fill="#c5b8e8" opacity=".5"/>
+
+  <!-- Amp badge -->
+  <circle cx="150" cy="118" r="14" fill="white" stroke="#f4a7b9" stroke-width="1.5"/>
+  <text x="150" y="123" text-anchor="middle" font-size="12" fill="#c5b8e8" font-family="Georgia,serif">&amp;</text>
+
+  <!-- Names -->
+  <text x="150" y="200" text-anchor="middle" font-size="10" fill="#b07a9a" font-family="Georgia,serif" font-style="italic">Siti Nurhaliza</text>
+  <text x="150" y="215" text-anchor="middle" font-size="16" fill="#c5b8e8" font-family="Georgia,serif">&amp;</text>
+  <text x="150" y="229" text-anchor="middle" font-size="10" fill="#b07a9a" font-family="Georgia,serif" font-style="italic">Ahmad Dhani</text>
+
+  <!-- Date -->
+  <rect x="80" y="236" width="140" height="1" fill="url(#rose)" opacity=".6"/>
+  <text x="150" y="250" text-anchor="middle" font-size="8" fill="#c5b8e8" font-family="sans-serif" letter-spacing="1">Sabtu, 14 Maret 2026</text>
+  <rect x="80" y="254" width="140" height="1" fill="url(#rose)" opacity=".6"/>
+
+  <!-- Countdown -->
+  <rect x="40" y="264" width="220" height="44" rx="8" fill="white" opacity=".7"/>
+  <text x="80" y="280" text-anchor="middle" font-size="18" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">32</text>
+  <text x="80" y="298" text-anchor="middle" font-size="6" fill="#b07a9a" letter-spacing="1">Hari</text>
+  <text x="118" y="288" text-anchor="middle" font-size="14" fill="#c5b8e8">:</text>
+  <text x="150" y="280" text-anchor="middle" font-size="18" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">08</text>
+  <text x="150" y="298" text-anchor="middle" font-size="6" fill="#b07a9a" letter-spacing="1">Jam</text>
+  <text x="182" y="288" text-anchor="middle" font-size="14" fill="#c5b8e8">:</text>
+  <text x="220" y="280" text-anchor="middle" font-size="18" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">45</text>
+  <text x="220" y="298" text-anchor="middle" font-size="6" fill="#b07a9a" letter-spacing="1">Menit</text>
+
+  <!-- Events -->
+  <rect x="30" y="320" width="115" height="75" rx="6" fill="white" opacity=".8" stroke="#f4a7b9" stroke-width=".8"/>
+  <text x="87" y="342" text-anchor="middle" font-size="18" fill="#f4a7b9">🌙</text>
+  <text x="87" y="360" text-anchor="middle" font-size="8" fill="#b07a9a" font-family="Georgia,serif">Akad Nikah</text>
+  <text x="87" y="374" text-anchor="middle" font-size="7" fill="#b07a9a" opacity=".7">08.00 WIB</text>
+  <text x="87" y="386" text-anchor="middle" font-size="6" fill="#c5b8e8" opacity=".8">Grand Ballroom</text>
+
+  <rect x="155" y="320" width="115" height="75" rx="6" fill="white" opacity=".8" stroke="#c5b8e8" stroke-width=".8"/>
+  <text x="212" y="342" text-anchor="middle" font-size="18" fill="#c5b8e8">🌸</text>
+  <text x="212" y="360" text-anchor="middle" font-size="8" fill="#b07a9a" font-family="Georgia,serif">Resepsi</text>
+  <text x="212" y="374" text-anchor="middle" font-size="7" fill="#b07a9a" opacity=".7">11.00 WIB</text>
+  <text x="212" y="386" text-anchor="middle" font-size="6" fill="#c5b8e8" opacity=".8">Hotel Mulia</text>
+
+  <!-- Guestbook preview -->
+  <rect x="30" y="408" width="240" height="50" rx="6" fill="white" opacity=".7"/>
+  <circle cx="52" cy="428" r="10" fill="#f4a7b9" opacity=".6"/>
+  <text x="52" y="432" text-anchor="middle" font-size="8" fill="white">A</text>
+  <rect x="68" y="418" width="140" height="20" rx="10" fill="#fce4ec"/>
+  <text x="140" y="431" text-anchor="middle" font-size="7" fill="#b07a9a" font-style="italic">Semoga bahagia selalu... 🌸</text>
+  <text x="150" y="453" text-anchor="middle" font-size="7" fill="#c5b8e8" opacity=".6">Buku Tamu · Realtime</text>
+
+  <!-- Bottom -->
+  <text x="150" y="485" text-anchor="middle" font-size="7" fill="#b07a9a" letter-spacing="2" opacity=".7">✿ VIP · PASTEL PATISSERIE ✿</text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0f8"/>
+      <stop offset="50%" stop-color="#fdf4ff"/>
+      <stop offset="100%" stop-color="#fff0f8"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+    <linearGradient id="photoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#fae8ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background bright -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+
+  <!-- Top animated bar -->
+  <rect x="0" y="0" width="400" height="5" fill="url(#pinkGrad)"/>
+
+  <!-- Bubbles decoration -->
+  <circle cx="50" cy="60" r="20" fill="#ec4899" opacity=".05"/>
+  <circle cx="360" cy="90" r="28" fill="#d946ef" opacity=".05"/>
+  <circle cx="30" cy="280" r="16" fill="#ec4899" opacity=".06"/>
+  <circle cx="380" cy="350" r="22" fill="#d946ef" opacity=".04"/>
+  <circle cx="70" cy="480" r="18" fill="#ec4899" opacity=".05"/>
+  <circle cx="350" cy="500" r="14" fill="#d946ef" opacity=".05"/>
+  <circle cx="200" cy="30" r="12" fill="#f0abfc" opacity=".08"/>
+
+  <!-- Sparkles -->
+  <text x="35" y="50" font-size="12" opacity=".35">✨</text>
+  <text x="348" y="48" font-size="12" opacity=".35">✨</text>
+  <text x="30" y="310" font-size="10" opacity=".25">🎉</text>
+  <text x="350" y="340" font-size="10" opacity=".25">✨</text>
+
+  <!-- Header cerah -->
+  <text x="200" y="56" font-family="Georgia,serif" font-size="8" letter-spacing="5" fill="#ec4899" text-anchor="middle">UNDANGAN WISUDA</text>
+
+  <!-- Divider bubbles style -->
+  <circle cx="140" cy="64" r="3" fill="#ec4899" opacity=".4"/>
+  <circle cx="155" cy="64" r="2" fill="#d946ef" opacity=".3"/>
+  <line x1="165" y1="64" x2="200" y2="64" stroke="#ec4899" stroke-width=".5" opacity=".35"/>
+  <text x="200" y="70" font-size="8" fill="#ec4899" text-anchor="middle">🎓</text>
+  <line x1="208" y1="64" x2="237" y2="64" stroke="#ec4899" stroke-width=".5" opacity=".35"/>
+  <circle cx="248" cy="64" r="2" fill="#d946ef" opacity=".3"/>
+  <circle cx="260" cy="64" r="3" fill="#ec4899" opacity=".4"/>
+
+  <!-- Photo frame - cerah circle with gradient ring -->
+  <circle cx="200" cy="188" r="78" fill="url(#pinkGrad)" opacity=".15"/>
+  <circle cx="200" cy="188" r="72" fill="url(#photoGrad)" stroke="#ec4899" stroke-width="2" opacity=".5"/>
+  <!-- 3D card feel - inner ring -->
+  <circle cx="200" cy="188" r="64" fill="none" stroke="#f0abfc" stroke-width="1" opacity=".4"/>
+  <!-- Silhouette -->
+  <ellipse cx="200" cy="170" rx="26" ry="30" fill="#ec4899" opacity=".18"/>
+  <ellipse cx="200" cy="214" rx="42" ry="26" fill="#ec4899" opacity=".12"/>
+  <!-- Cap cerah -->
+  <g transform="translate(200,118)">
+    <polygon points="-24,0 0,-13 24,0 0,13" fill="#9d1f73" opacity=".9"/>
+    <rect x="-12" y="-15" width="24" height="17" rx="3" fill="#be185d" opacity=".9"/>
+    <line x1="24" y1="0" x2="24" y2="20" stroke="#fbcfe8" stroke-width="2"/>
+    <circle cx="24" cy="23" r="3.5" fill="#fbcfe8"/>
+  </g>
+
+  <!-- Orbit badges around photo -->
+  <text x="120" y="148" font-size="14" opacity=".5">🎓</text>
+  <text x="270" y="148" font-size="12" opacity=".4">✨</text>
+  <text x="138" y="242" font-size="12" opacity=".35">💐</text>
+
+  <!-- Name -->
+  <text x="200" y="300" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#9d1f73" text-anchor="middle">Nama Wisudawan</text>
+  <text x="200" y="318" font-family="Arial,sans-serif" font-size="8" fill="#ec4899" text-anchor="middle" letter-spacing="3">WISUDAWAN</text>
+
+  <!-- Divider cerah -->
+  <line x1="70" y1="332" x2="180" y2="332" stroke="#ec4899" stroke-width=".5" opacity=".35"/>
+  <circle cx="195" cy="332" r="4" fill="#ec4899" opacity=".4"/>
+  <text x="200" y="338" font-size="8" fill="#ec4899" text-anchor="middle">🎓</text>
+  <circle cx="205" cy="332" r="4" fill="#d946ef" opacity=".3"/>
+  <line x1="218" y1="332" x2="330" y2="332" stroke="#ec4899" stroke-width=".5" opacity=".35"/>
+
+  <!-- University -->
+  <text x="200" y="356" font-family="Georgia,serif" font-size="9" font-style="italic" fill="#be185d" text-anchor="middle" opacity=".75">Universitas · Program Studi</text>
+  <text x="200" y="372" font-family="Arial,sans-serif" font-size="8" fill="#f0abfc" text-anchor="middle">IPK : 3.90 ✨</text>
+
+  <!-- Event card cerah -->
+  <rect x="60" y="388" width="280" height="80" rx="12" fill="rgba(236,72,153,0.06)" stroke="#ec4899" stroke-width=".8" opacity=".3"/>
+  <text x="86" y="415" font-size="16">🎓</text>
+  <text x="114" y="414" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#9d1f73" letter-spacing="1">PROSESI WISUDA</text>
+  <text x="114" y="429" font-family="Georgia,serif" font-size="8" font-style="italic" fill="#ec4899">Senin, 4 Maret 2026</text>
+  <text x="114" y="444" font-family="Arial,sans-serif" font-size="7.5" fill="#d946ef" opacity=".7">Gedung Wisuda · 08.00 WIB</text>
+
+  <!-- WA Button cerah gradient -->
+  <rect x="76" y="482" width="248" height="34" rx="17" fill="url(#pinkGrad)"/>
+  <text x="200" y="503" font-family="Arial,sans-serif" font-size="8.5" fill="#fff0f8" text-anchor="middle" font-weight="700" letter-spacing="1">Kirim Ucapan via WhatsApp</text>
+
+  <!-- Bottom tag cerah -->
+  <text x="186" y="524" font-size="11" opacity=".3">🎉</text>
+  <text x="198" y="524" font-size="11" opacity=".4">✨</text>
+  <text x="210" y="524" font-size="11" opacity=".3">🎓</text>
+  <text x="200" y="542" font-family="Georgia,serif" font-size="8" fill="#ec4899" text-anchor="middle" font-style="italic" opacity=".5">graduation · cerah · penuh warna</text>
+</svg>

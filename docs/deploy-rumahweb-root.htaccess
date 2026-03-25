@@ -1,0 +1,22 @@
+# ──────────────────────────────────────────────────────────────────
+# FILE INI diletakkan di public_html/ (root domain Rumahweb)
+# BUKAN di dalam folder laravel/public/
+#
+# Cara deploy ke Rumahweb:
+# 1. Upload seluruh project Laravel ke folder: public_html/laravel/
+# 2. Letakkan file ini sebagai: public_html/.htaccess
+# 3. Buat file public_html/index.php (lihat docs/deploy-rumahweb-root-index.php)
+# 4. Set APP_ENV=production dan APP_URL=https://domainanda.com di .env
+# ──────────────────────────────────────────────────────────────────
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Jangan proses ulang file/folder yang benar-benar ada (css, js, gambar, dll)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Semua request diteruskan ke index.php di root public_html
+    RewriteRule ^(.*)$ /index.php [L,QSA]
+</IfModule>

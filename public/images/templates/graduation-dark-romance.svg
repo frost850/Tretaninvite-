@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0508"/>
+      <stop offset="50%" stop-color="#160a0e"/>
+      <stop offset="100%" stop-color="#0c0508"/>
+    </linearGradient>
+    <linearGradient id="crimsonGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b1428"/>
+      <stop offset="100%" stop-color="#c41e3a"/>
+    </linearGradient>
+    <linearGradient id="photoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#160a0e"/>
+      <stop offset="100%" stop-color="#200d12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background dark -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+
+  <!-- Ember particles scattered -->
+  <circle cx="50" cy="80" r="1.2" fill="#c41e3a" opacity=".4"/>
+  <circle cx="340" cy="60" r=".8" fill="#e05070" opacity=".3"/>
+  <circle cx="80" cy="200" r="1" fill="#8b1428" opacity=".5"/>
+  <circle cx="360" cy="250" r=".9" fill="#c41e3a" opacity=".35"/>
+  <circle cx="30" cy="380" r=".7" fill="#e05070" opacity=".25"/>
+  <circle cx="375" cy="420" r="1.1" fill="#c41e3a" opacity=".4"/>
+  <circle cx="180" cy="40" r=".8" fill="#8b1428" opacity=".3"/>
+  <circle cx="300" cy="510" r=".9" fill="#e05070" opacity=".3"/>
+
+  <!-- Rose petals scattered -->
+  <text x="30" y="120" font-size="12" opacity=".2">🌹</text>
+  <text x="340" y="150" font-size="12" opacity=".2">🌹</text>
+  <text x="60" y="450" font-size="10" opacity=".15">🌹</text>
+  <text x="320" y="480" font-size="10" opacity=".15">🌹</text>
+
+  <!-- Border crimson -->
+  <rect x="8" y="8" width="384" height="544" fill="none" stroke="#8b1428" stroke-width="1" opacity=".5"/>
+
+  <!-- Header -->
+  <text x="200" y="54" font-family="Georgia,serif" font-size="8" letter-spacing="5" fill="#e05070" text-anchor="middle" font-style="italic">UNDANGAN WISUDA</text>
+
+  <!-- Crimson divider -->
+  <line x1="60" y1="62" x2="176" y2="62" stroke="#8b1428" stroke-width=".7" opacity=".6"/>
+  <text x="200" y="68" font-size="9" fill="#c41e3a" text-anchor="middle" opacity=".8">✦</text>
+  <line x1="224" y1="62" x2="340" y2="62" stroke="#8b1428" stroke-width=".7" opacity=".6"/>
+
+  <!-- Photo frame - dramatic ellipse -->
+  <ellipse cx="200" cy="190" rx="74" ry="90" fill="none" stroke="#8b1428" stroke-width="1.5" opacity=".5"/>
+  <ellipse cx="200" cy="190" rx="66" ry="82" fill="url(#photoGrad)"/>
+  <!-- Silhouette -->
+  <ellipse cx="200" cy="172" rx="24" ry="28" fill="#c41e3a" opacity=".15"/>
+  <ellipse cx="200" cy="216" rx="40" ry="26" fill="#c41e3a" opacity=".1"/>
+  <!-- Cap dark -->
+  <g transform="translate(200,116)">
+    <polygon points="-26,0 0,-14 26,0 0,14" fill="#8b1428" opacity=".9"/>
+    <rect x="-13" y="-16" width="26" height="18" rx="3" fill="#c41e3a" opacity=".9"/>
+    <line x1="26" y1="0" x2="26" y2="22" stroke="#e05070" stroke-width="2"/>
+    <circle cx="26" cy="25" r="3.5" fill="#e05070"/>
+  </g>
+
+  <!-- Name dramatic -->
+  <text x="200" y="310" font-family="Georgia,serif" font-size="20" font-weight="700" font-style="italic" fill="#f5e0e7" text-anchor="middle" letter-spacing=".5">Nama Wisudawan</text>
+  <text x="200" y="328" font-family="Arial,sans-serif" font-size="8" fill="#e05070" text-anchor="middle" letter-spacing="3">WISUDAWAN</text>
+
+  <!-- Crimson divider -->
+  <line x1="80" y1="342" x2="182" y2="342" stroke="#8b1428" stroke-width=".7" opacity=".5"/>
+  <text x="200" y="348" font-size="9" fill="#c41e3a" text-anchor="middle" opacity=".8">✦</text>
+  <line x1="218" y1="342" x2="320" y2="342" stroke="#8b1428" stroke-width=".7" opacity=".5"/>
+
+  <!-- University -->
+  <text x="200" y="368" font-family="Georgia,serif" font-size="9" font-style="italic" fill="#e05070" text-anchor="middle" opacity=".65">Universitas · Program Studi</text>
+
+  <!-- Event card dark -->
+  <rect x="60" y="384" width="280" height="82" rx="4" fill="rgba(139,20,40,0.12)" stroke="#8b1428" stroke-width=".8" opacity=".4"/>
+  <text x="88" y="412" font-size="16">🎓</text>
+  <text x="116" y="410" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f5e0e7" letter-spacing="1">PROSESI WISUDA</text>
+  <text x="116" y="426" font-family="Georgia,serif" font-size="8" font-style="italic" fill="#e05070">Senin, 4 Maret 2026</text>
+  <text x="116" y="441" font-family="Arial,sans-serif" font-size="7.5" fill="#c41e3a" opacity=".7">Gedung Wisuda Universitas</text>
+  <text x="116" y="455" font-family="Arial,sans-serif" font-size="7.5" fill="#c41e3a" opacity=".7">08.00 WIB</text>
+
+  <!-- WA Button dark romance -->
+  <rect x="80" y="480" width="240" height="34" rx="4" fill="none" stroke="#8b1428" stroke-width="1"/>
+  <text x="200" y="502" font-family="Arial,sans-serif" font-size="8.5" fill="#e05070" text-anchor="middle" letter-spacing="1">Kirim Ucapan via WhatsApp</text>
+
+  <!-- Bottom -->
+  <text x="200" y="536" font-family="Georgia,serif" font-size="8" fill="#8b1428" text-anchor="middle" font-style="italic" opacity=".6">graduation · dark romance · dramatis</text>
+</svg>

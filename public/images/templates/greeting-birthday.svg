@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f3ff"/>
+      <stop offset="50%" stop-color="#fdf2f8"/>
+      <stop offset="100%" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <linearGradient id="vio" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Card-in-card feel — outer envelope -->
+  <rect x="20" y="20" width="260" height="460" rx="12" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity=".5"/>
+  <!-- Envelope flap hint top -->
+  <path d="M20,20 L150,100 L280,20 Z" fill="#ede9fe" opacity=".35"/>
+
+  <!-- Scattered deco -->
+  <text x="25" y="72" font-size="14" opacity=".3" transform="rotate(-15,25,72)">💌</text>
+  <text x="254" y="50" font-size="12" opacity=".28" transform="rotate(18,254,50)">✨</text>
+  <text x="22" y="400" font-size="13" opacity=".25" transform="rotate(-12,22,400)">🌸</text>
+  <text x="255" y="420" font-size="12" opacity=".26" transform="rotate(14,255,420)">💫</text>
+
+  <!-- Header -->
+  <text x="150" y="48" text-anchor="middle" font-size="9" fill="#7c3aed" letter-spacing="2" font-family="sans-serif">💌 Greeting Card</text>
+  <rect x="80" y="52" width="140" height=".7" fill="url(#vio)" opacity=".4"/>
+
+  <!-- Big heart illustration -->
+  <path d="M150,150 C150,150 100,110 100,80 C100,60 118,50 135,63 C141,68 147,76 150,82 C153,76 159,68 165,63 C182,50 200,60 200,80 C200,110 150,150 150,150 Z" fill="#f9a8d4" opacity=".5"/>
+  <path d="M150,140 C150,140 108,106 108,80 C108,65 120,57 133,67 C139,72 146,79 150,85 C154,79 161,72 167,67 C180,57 192,65 192,80 C192,106 150,140 150,140 Z" fill="#c084fc" opacity=".4"/>
+  <text x="150" y="108" text-anchor="middle" font-size="28" fill="#ec4899" opacity=".3">💖</text>
+
+  <!-- Decorative stars around heart -->
+  <text x="95" y="72" font-size="10" fill="#c084fc" opacity=".5">✦</text>
+  <text x="196" y="70" font-size="10" fill="#c084fc" opacity=".5">✦</text>
+  <text x="88" y="128" font-size="8" fill="#f9a8d4" opacity=".6">✿</text>
+  <text x="204" y="130" font-size="8" fill="#f9a8d4" opacity=".6">✿</text>
+
+  <!-- Greeting card text area -->
+  <rect x="35" y="165" width="230" height="140" rx="8" fill="white" opacity=".75" stroke="#e9d5ff" stroke-width=".8"/>
+  <rect x="38" y="168" width="224" height="134" rx="6" fill="white" opacity=".5"/>
+
+  <!-- Handwriting-like greeting text -->
+  <text x="150" y="194" text-anchor="middle" font-size="13" fill="#7c3aed" font-family="Georgia,serif" font-style="italic">Selamat Ulang Tahun!</text>
+  <rect x="60" y="199" width="180" height=".6" fill="#e9d5ff"/>
+  <text x="150" y="217" text-anchor="middle" font-size="8" fill="#6b21a8" font-family="Georgia,serif" font-style="italic">Semoga hari istimewamu</text>
+  <text x="150" y="230" text-anchor="middle" font-size="8" fill="#6b21a8" font-family="Georgia,serif" font-style="italic">dipenuhi senyum dan tawa.</text>
+  <text x="150" y="250" text-anchor="middle" font-size="8" fill="#9333ea" font-family="Georgia,serif" font-style="italic">Terima kasih telah menjadi</text>
+  <text x="150" y="263" text-anchor="middle" font-size="8" fill="#9333ea" font-family="Georgia,serif" font-style="italic">bagian indah dalam hidup kami.</text>
+  <text x="150" y="282" text-anchor="middle" font-size="10" fill="#db2777" font-family="Georgia,serif" font-style="italic">With love 💖</text>
+
+  <!-- To/From labels -->
+  <rect x="35" y="318" width="230" height="44" rx="6" fill="white" opacity=".7"/>
+  <text x="52" y="334" font-size="7" fill="#a78bfa" letter-spacing="1">KEPADA</text>
+  <text x="52" y="348" font-size="11" fill="#6b21a8" font-family="Georgia,serif" font-style="italic">Aisyah Azzahra</text>
+  <rect x="180" y="320" width=".6" height="38" fill="#e9d5ff"/>
+  <text x="196" y="334" font-size="7" fill="#a78bfa" letter-spacing="1">DARI</text>
+  <text x="196" y="348" font-size="9" fill="#9333ea" font-family="Georgia,serif" font-style="italic">Keluarga Ahmad</text>
+
+  <!-- Decorative ribbon bottom of card -->
+  <rect x="35" y="373" width="230" height="6" rx="3" fill="url(#vio)" opacity=".25"/>
+
+  <!-- Share buttons -->
+  <rect x="35" y="390" width="110" height="26" rx="6" fill="#ede9fe"/>
+  <text x="90" y="407" text-anchor="middle" font-size="8.5" fill="#7c3aed">📤 Bagikan</text>
+  <rect x="155" y="390" width="110" height="26" rx="6" fill="#fce7f3"/>
+  <text x="210" y="407" text-anchor="middle" font-size="8.5" fill="#db2777">💬 WhatsApp</text>
+
+  <!-- Bottom sparkle -->
+  <text x="80" y="440" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity=".6">✨</text>
+  <text x="150" y="445" text-anchor="middle" font-size="12" fill="#f9a8d4" opacity=".6">💌</text>
+  <text x="220" y="440" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity=".6">✨</text>
+
+  <rect x="80" y="456" width="140" height=".7" fill="url(#vio)" opacity=".3"/>
+  <text x="150" y="470" text-anchor="middle" font-size="7" fill="#9333ea" letter-spacing="2" opacity=".65">GREETING CARD · BIRTHDAY</text>
+  <text x="150" y="484" text-anchor="middle" font-size="8" fill="#c4b5fd" opacity=".5">💜 Digital &amp; Personal 💜</text>
+</svg>

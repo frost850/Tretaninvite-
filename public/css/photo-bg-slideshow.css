@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════
+   📸  PHOTO BACKGROUND SLIDESHOW — Universal / Shared
+   Ken Burns fullscreen reel + per-section scroll trigger
+   Works with ALL invitation templates.
+═══════════════════════════════════════════════════════════ */
+
+/* Full-screen reel — sits at z-index 0 behind everything */
+#photo-bg-reel {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Individual photo slide */
+.pbr-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(.4,0,.2,1);
+  will-change: opacity, transform;
+}
+.pbr-slide.active { opacity: 1; }
+.pbr-slide.prev   { opacity: 0; transition: opacity 2s ease; }
+
+/* Ken Burns – 4 directional variations */
+@keyframes kenBurnsA {
+  from { transform: scale(1.11) translate( 1.5%,  1.5%); }
+  to   { transform: scale(1.0)  translate(-0.5%, -0.5%); }
+}
+@keyframes kenBurnsB {
+  from { transform: scale(1.13) translate(-1.5%,  0.5%); }
+  to   { transform: scale(1.0)  translate( 0.5%, -0.5%); }
+}
+@keyframes kenBurnsC {
+  from { transform: scale(1.09) translate( 0.5%,  1.8%); }
+  to   { transform: scale(1.0)  translate(-0.5%, -0.5%); }
+}
+@keyframes kenBurnsD {
+  from { transform: scale(1.12) translate(-1.0%, -1.5%); }
+  to   { transform: scale(1.0)  translate( 1.0%,  0.5%); }
+}
+
+/* Neutral light overlay — soft white veil over the photos */
+#photo-bg-reel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,252,248,.68);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Generic section transparency when reel is active */
+body.has-photo-bg section {
+  background: rgba(255,255,255,.55) !important;
+}
+
+/* Progress dots — right edge of screen */
+#pbr-dots {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  pointer-events: none;
+}
+#pbr-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(120,90,60,.25);
+  transition: background .4s, transform .4s;
+}
+#pbr-dots span.on {
+  background: rgba(120,90,60,.85);
+  transform: scale(1.5);
+  box-shadow: 0 0 6px rgba(120,90,60,.4);
+}
+
+/* ── Cover: cinematic blurred photo background ── */
+#cover-photo-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2.8s ease;
+  filter: blur(20px) brightness(.52) saturate(1.4);
+  transform: scale(1.1);
+  z-index: 1;
+  pointer-events: none;
+}
+#cover-photo-bg.loaded { opacity: 1; }
+
+/* ── Dark template overrides (dark-romance, dark-mode themes) ── */
+body.has-photo-bg.dark-template section,
+body.has-photo-bg.dark-mode section {
+  background: rgba(15,10,20,.78) !important;
+}
+body.has-photo-bg.dark-template #photo-bg-reel::after,
+body.has-photo-bg.dark-mode #photo-bg-reel::after {
+  background: rgba(10,8,18,.82);
+}
+body.dark-template #cover-photo-bg,
+body.dark-mode #cover-photo-bg {
+  filter: blur(22px) brightness(.34) saturate(1.1);
+}

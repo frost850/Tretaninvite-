@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8f8f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Minimal thin lines -->
+  <rect x="30" y="40" width="240" height=".6" fill="#d4d4d4"/>
+  <rect x="30" y="460" width="240" height=".6" fill="#d4d4d4"/>
+
+  <!-- Eyebrow -->
+  <text x="150" y="32" text-anchor="middle" font-size="7" fill="#999" letter-spacing="5" font-family="sans-serif">UNDANGAN PERNIKAHAN</text>
+
+  <!-- Photo frame — clean square -->
+  <rect x="75" y="55" width="150" height="155" rx="2" fill="#f2f2f2"/>
+  <ellipse cx="150" cy="168" rx="38" ry="42" fill="#e0e0e0"/>
+  <circle cx="150" cy="125" r="27" fill="#e0e0e0"/>
+
+  <!-- Names — clean sans -->
+  <text x="150" y="240" text-anchor="middle" font-size="20" fill="#222" font-family="Georgia,serif" font-style="italic">Siti &amp; Ahmad</text>
+  <rect x="105" y="246" width="90" height="1" fill="#bbb"/>
+  <text x="150" y="262" text-anchor="middle" font-size="7.5" fill="#888" letter-spacing="3" font-family="sans-serif">SABTU, 14 MARET 2026</text>
+
+  <!-- Section label minimal -->
+  <text x="40" y="290" text-anchor="start" font-size="7" fill="#bbb" letter-spacing="3">ACARA</text>
+  <rect x="40" y="294" width="220" height=".5" fill="#e0e0e0"/>
+
+  <!-- Event rows clean -->
+  <text x="40" y="314" font-size="8.5" fill="#333" font-family="Georgia,serif">Akad Nikah</text>
+  <text x="260" y="314" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">08.00 WIB</text>
+  <text x="40" y="328" font-size="7" fill="#aaa" font-family="sans-serif">Grand Ballroom, Jakarta</text>
+  <rect x="40" y="334" width="220" height=".4" fill="#ebebeb"/>
+
+  <text x="40" y="354" font-size="8.5" fill="#333" font-family="Georgia,serif">Resepsi</text>
+  <text x="260" y="354" text-anchor="end" font-size="7.5" fill="#888" font-family="sans-serif">11.00 WIB</text>
+  <text x="40" y="368" font-size="7" fill="#aaa" font-family="sans-serif">Hotel Mulia, Jakarta</text>
+  <rect x="40" y="374" width="220" height=".4" fill="#ebebeb"/>
+
+  <!-- Map minimal -->
+  <text x="40" y="398" text-anchor="start" font-size="7" fill="#bbb" letter-spacing="3">LOKASI</text>
+  <rect x="40" y="402" width="220" height="34" rx="2" fill="#f5f5f5"/>
+  <text x="150" y="416" text-anchor="middle" font-size="9" fill="#ccc">🗺️</text>
+  <text x="150" y="428" text-anchor="middle" font-size="6" fill="#bbb" letter-spacing="1">Grand Ballroom · Jakarta</text>
+
+  <!-- RSVP minimal button -->
+  <rect x="80" y="444" width="140" height="22" rx="1" fill="#222"/>
+  <text x="150" y="459" text-anchor="middle" font-size="8" fill="white" font-family="sans-serif" letter-spacing="2">KONFIRMASI</text>
+
+  <text x="150" y="484" text-anchor="middle" font-size="6.5" fill="#ccc" letter-spacing="4">MINIMAL · WEDDING</text>
+</svg>

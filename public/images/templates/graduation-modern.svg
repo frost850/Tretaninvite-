@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="photoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="400" height="5" fill="url(#accent)"/>
+
+  <!-- Grid lines decoration -->
+  <line x1="0" y1="40" x2="400" y2="40" stroke="#334155" stroke-width=".4" opacity=".15"/>
+  <line x1="0" y1="520" x2="400" y2="520" stroke="#334155" stroke-width=".4" opacity=".15"/>
+  <line x1="40" y1="0" x2="40" y2="560" stroke="#334155" stroke-width=".4" opacity=".15"/>
+  <line x1="360" y1="0" x2="360" y2="560" stroke="#334155" stroke-width=".4" opacity=".15"/>
+
+  <!-- Corner geo shapes -->
+  <polygon points="18,18 38,18 18,38" fill="#334155" opacity=".2"/>
+  <polygon points="382,18 362,18 382,38" fill="#334155" opacity=".2"/>
+  <polygon points="18,542 38,542 18,522" fill="#334155" opacity=".2"/>
+  <polygon points="382,542 362,542 382,522" fill="#334155" opacity=".2"/>
+
+  <!-- Header -->
+  <text x="200" y="62" font-family="Georgia,serif" font-size="8" letter-spacing="5" fill="#334155" text-anchor="middle" opacity=".7">UNDANGAN WISUDA</text>
+  <line x1="60" y1="70" x2="160" y2="70" stroke="#334155" stroke-width=".6" opacity=".3"/>
+  <polygon points="200,66 204,72 196,72" fill="#334155" opacity=".5"/>
+  <line x1="240" y1="70" x2="340" y2="70" stroke="#334155" stroke-width=".6" opacity=".3"/>
+
+  <!-- Photo frame - modern rectangle -->
+  <rect x="140" y="90" width="120" height="150" rx="4" fill="url(#photoGrad)" stroke="#334155" stroke-width="1.5" opacity=".9"/>
+  <!-- Silhouette -->
+  <ellipse cx="200" cy="152" rx="24" ry="28" fill="#334155" opacity=".15"/>
+  <ellipse cx="200" cy="196" rx="36" ry="24" fill="#334155" opacity=".12"/>
+  <!-- Cap -->
+  <g transform="translate(200,102)">
+    <polygon points="-22,0 0,-12 22,0 0,12" fill="#1e293b" opacity=".9"/>
+    <rect x="-11" y="-14" width="22" height="16" rx="2" fill="#334155" opacity=".9"/>
+    <line x1="22" y1="0" x2="22" y2="18" stroke="#64748b" stroke-width="1.5"/>
+    <circle cx="22" cy="20" r="3" fill="#64748b"/>
+  </g>
+
+  <!-- Name -->
+  <text x="200" y="272" font-family="Georgia,serif" font-size="20" font-weight="600" fill="#1e293b" text-anchor="middle" letter-spacing=".5">Nama Wisudawan</text>
+  <text x="200" y="290" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle" letter-spacing="3">WISUDAWAN</text>
+
+  <!-- Geo divider -->
+  <line x1="60" y1="304" x2="185" y2="304" stroke="#334155" stroke-width=".6" opacity=".3"/>
+  <polygon points="200,300 205,308 195,308" fill="#334155" opacity=".5"/>
+  <line x1="215" y1="304" x2="340" y2="304" stroke="#334155" stroke-width=".6" opacity=".3"/>
+
+  <!-- University info -->
+  <text x="200" y="328" font-family="Arial,sans-serif" font-size="9" fill="#475569" text-anchor="middle" letter-spacing="1">Universitas · Program Studi</text>
+  <text x="200" y="346" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle" opacity=".7">IPK : 3.90</text>
+
+  <!-- Event card -->
+  <rect x="60" y="368" width="280" height="80" rx="6" fill="#334155" opacity=".08" stroke="#334155" stroke-width=".8" opacity=".2"/>
+  <text x="88" y="395" font-size="16">🎓</text>
+  <text x="116" y="394" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#1e293b" letter-spacing="1">PROSESI WISUDA</text>
+  <text x="116" y="410" font-family="Arial,sans-serif" font-size="8" fill="#475569">Senin, 4 Maret 2026</text>
+  <text x="116" y="424" font-family="Arial,sans-serif" font-size="8" fill="#64748b">Gedung Wisuda Universitas</text>
+  <text x="116" y="436" font-family="Arial,sans-serif" font-size="8" fill="#64748b">08.00 WIB</text>
+
+  <!-- WA Button -->
+  <rect x="100" y="468" width="200" height="32" rx="16" fill="#334155"/>
+  <text x="200" y="489" font-family="Arial,sans-serif" font-size="9" fill="#f8fafc" text-anchor="middle" letter-spacing="1">Kirim Ucapan via WhatsApp</text>
+
+  <!-- Bottom tagline -->
+  <text x="200" y="532" font-family="Georgia,serif" font-size="8" fill="#64748b" text-anchor="middle" font-style="italic" opacity=".6">graduation · modern · elegan</text>
+</svg>

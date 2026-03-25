@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff1f8"/>
+      <stop offset="50%" stop-color="#f5eeff"/>
+      <stop offset="100%" stop-color="#fce4ec"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Floral deco -->
+  <text x="10" y="64" font-size="22" opacity=".25" transform="rotate(-18,10,64)">🌸</text>
+  <text x="255" y="42" font-size="18" opacity=".22" transform="rotate(20,255,42)">🌷</text>
+  <text x="8" y="330" font-size="20" opacity=".2" transform="rotate(-14,8,330)">🌺</text>
+  <text x="258" y="400" font-size="18" opacity=".22" transform="rotate(16,258,400)">🌼</text>
+
+  <!-- Header fancy -->
+  <text x="150" y="36" text-anchor="middle" font-size="8" fill="#a78bfa" letter-spacing="2">🍰 Birthday Patisserie 🍰</text>
+  <rect x="70" y="40" width="160" height=".7" fill="url(#rose)" opacity=".4"/>
+
+  <!-- Tea-party table illustration -->
+  <!-- Table surface -->
+  <ellipse cx="150" cy="186" rx="100" ry="14" fill="#fce4ec" opacity=".7"/>
+  <!-- Tablecloth lace edge -->
+  <path d="M50,186 Q58,178 66,186 Q74,178 82,186 Q90,178 98,186 Q106,178 114,186 Q122,178 130,186 Q138,178 146,186 Q154,178 162,186 Q170,178 178,186 Q186,178 194,186 Q202,178 210,186 Q218,178 226,186 Q234,178 242,186 Q250,178 250,186" fill="none" stroke="#f9a8d4" stroke-width="1" opacity=".8"/>
+  <!-- Teapot -->
+  <ellipse cx="105" cy="162" rx="28" ry="22" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
+  <path d="M130,158 Q142,153 138,162" fill="none" stroke="#f9a8d4" stroke-width="1.5"/>
+  <rect x="96" y="140" width="18" height="6" rx="3" fill="#f9a8d4" opacity=".7"/>
+  <ellipse cx="105" cy="162" rx="28" ry="22" fill="none" stroke="#c084fc" stroke-width=".5" opacity=".4"/>
+  <!-- Teacup -->
+  <path d="M140,170 Q140,184 160,184 Q180,184 180,170 Z" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
+  <ellipse cx="160" cy="170" rx="20" ry="6" fill="#fce4ec"/>
+  <path d="M178,174 Q186,174 186,178 Q186,182 178,182" fill="none" stroke="#f9a8d4" stroke-width="1.2"/>
+  <rect x="140" y="184" width="40" height="3" rx="1.5" fill="#fce7f3"/>
+  <!-- Cake slice -->
+  <path d="M192,168 L210,138 L228,168 Z" fill="#fbcfe8"/>
+  <rect x="192" y="168" width="36" height="8" rx="1" fill="#fde68a"/>
+  <!-- Candle on cake -->
+  <rect x="208" y="127" width="4" height="12" rx="2" fill="#c084fc"/>
+  <ellipse cx="210" cy="125" rx="3" ry="3.5" fill="#fbbf24" opacity=".85"/>
+
+  <!-- Name elegant -->
+  <text x="150" y="218" text-anchor="middle" font-size="15" fill="#be185d" font-family="Georgia,serif" font-style="italic">Aisyah Azzahra</text>
+  <rect x="85" y="223" width="130" height=".8" fill="url(#rose)" opacity=".5"/>
+  <text x="150" y="237" text-anchor="middle" font-size="8.5" fill="#a78bfa" font-family="Georgia,serif" font-style="italic">Ulang Tahun ke-7 ✨</text>
+  <text x="150" y="252" text-anchor="middle" font-size="7.5" fill="#c084fc" letter-spacing="1">Sabtu, 14 Maret 2026</text>
+
+  <!-- Floral divider -->
+  <text x="150" y="268" text-anchor="middle" font-size="10" fill="#f9a8d4" letter-spacing="4">🌸 ✿ 🌸</text>
+
+  <!-- Detail cards pastel -->
+  <rect x="28" y="280" width="115" height="68" rx="10" fill="white" opacity=".8" stroke="#f9a8d4" stroke-width=".7"/>
+  <text x="85" y="302" text-anchor="middle" font-size="14" fill="#f472b6">📍</text>
+  <text x="85" y="320" text-anchor="middle" font-size="8" fill="#be185d" font-family="Georgia,serif">Lokasi</text>
+  <text x="85" y="334" text-anchor="middle" font-size="7" fill="#be185d" opacity=".6">Taman Ancol</text>
+  <text x="85" y="344" text-anchor="middle" font-size="6.5" fill="#a78bfa">Jakarta Utara</text>
+
+  <rect x="157" y="280" width="115" height="68" rx="10" fill="white" opacity=".8" stroke="#c4b5fd" stroke-width=".7"/>
+  <text x="214" y="302" text-anchor="middle" font-size="14" fill="#a78bfa">⏰</text>
+  <text x="214" y="320" text-anchor="middle" font-size="8" fill="#7c3aed" font-family="Georgia,serif">Waktu</text>
+  <text x="214" y="334" text-anchor="middle" font-size="7" fill="#7c3aed" opacity=".65">14:00 WIB</text>
+  <text x="214" y="344" text-anchor="middle" font-size="6.5" fill="#c084fc">Casual Colorful</text>
+
+  <!-- Theme pill -->
+  <rect x="75" y="360" width="150" height="20" rx="10" fill="url(#rose)" opacity=".2" stroke="#f9a8d4" stroke-width=".7"/>
+  <text x="150" y="374" text-anchor="middle" font-size="8" fill="#be185d">🦋 Princess &amp; Butterfly Theme</text>
+
+  <!-- Macaroon row — color dots as macaroons -->
+  <circle cx="60" cy="408" r="16" fill="#f9a8d4" opacity=".7"/>
+  <circle cx="60" cy="408" r="10" fill="#fce7f3" opacity=".8"/>
+  <circle cx="108" cy="408" r="16" fill="#a5f3fc" opacity=".6"/>
+  <circle cx="108" cy="408" r="10" fill="#e0f2fe" opacity=".8"/>
+  <circle cx="156" cy="408" r="16" fill="#c4b5fd" opacity=".65"/>
+  <circle cx="156" cy="408" r="10" fill="#f5f3ff" opacity=".8"/>
+  <circle cx="204" cy="408" r="16" fill="#fde68a" opacity=".65"/>
+  <circle cx="204" cy="408" r="10" fill="#fef9c3" opacity=".8"/>
+  <circle cx="250" cy="408" r="16" fill="#86efac" opacity=".6"/>
+  <circle cx="250" cy="408" r="10" fill="#dcfce7" opacity=".8"/>
+
+  <!-- RSVP -->
+  <rect x="70" y="436" width="160" height="26" rx="13" fill="url(#rose)"/>
+  <text x="150" y="453" text-anchor="middle" font-size="9" fill="white">Konfirmasi Hadir 🎂</text>
+
+  <text x="150" y="484" text-anchor="middle" font-size="7" fill="#c084fc" letter-spacing="2" opacity=".7">BIRTHDAY PATISSERIE · TEA PARTY</text>
+</svg>

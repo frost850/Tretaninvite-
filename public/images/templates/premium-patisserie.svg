@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6ef"/>
+      <stop offset="50%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#fce4ec"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f4a7b9"/>
+      <stop offset="100%" stop-color="#c5b8e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Subtle petal deco -->
+  <text x="15" y="55" font-size="16" opacity=".25" transform="rotate(-15,15,55)">🌸</text>
+  <text x="258" y="38" font-size="13" opacity=".22" transform="rotate(20,258,38)">🌷</text>
+  <text x="12" y="300" font-size="13" opacity=".2" transform="rotate(-10,12,300)">🌺</text>
+  <text x="260" y="380" font-size="15" opacity=".22" transform="rotate(12,260,380)">🌼</text>
+
+  <!-- Top eyebrow -->
+  <text x="150" y="36" text-anchor="middle" font-size="8" fill="#c5b8e8" letter-spacing="2" font-family="sans-serif">🌷 Premium Patisserie</text>
+  <rect x="80" y="40" width="140" height=".8" fill="url(#rose)" opacity=".4"/>
+
+  <!-- Hero frames -->
+  <rect x="60" y="52" width="82" height="108" rx="41" fill="#f9c8d8" stroke="#f4a7b9" stroke-width="1.5"/>
+  <rect x="69" y="60" width="64" height="92" rx="32" fill="#fce4ec"/>
+  <ellipse cx="101" cy="127" rx="17" ry="23" fill="#f4a7b9" opacity=".45"/>
+  <circle cx="101" cy="103" r="11" fill="#f4a7b9" opacity=".45"/>
+
+  <rect x="158" y="62" width="82" height="108" rx="41" fill="#e8e0f8" stroke="#c5b8e8" stroke-width="1.5"/>
+  <rect x="167" y="70" width="64" height="92" rx="32" fill="#f3e8ff"/>
+  <ellipse cx="199" cy="137" rx="17" ry="23" fill="#c5b8e8" opacity=".45"/>
+  <circle cx="199" cy="113" r="11" fill="#c5b8e8" opacity=".45"/>
+
+  <circle cx="150" cy="116" r="13" fill="white" stroke="#f4a7b9" stroke-width="1.2"/>
+  <text x="150" y="121" text-anchor="middle" font-size="11" fill="#c5b8e8" font-family="Georgia,serif">&amp;</text>
+
+  <!-- Names -->
+  <text x="150" y="196" text-anchor="middle" font-size="10" fill="#b07a9a" font-family="Georgia,serif" font-style="italic">Siti Nurhaliza</text>
+  <text x="150" y="210" text-anchor="middle" font-size="14" fill="#c5b8e8" font-family="Georgia,serif">&amp;</text>
+  <text x="150" y="224" text-anchor="middle" font-size="10" fill="#b07a9a" font-family="Georgia,serif" font-style="italic">Ahmad Dhani</text>
+  <rect x="90" y="229" width="120" height=".8" fill="url(#rose)" opacity=".5"/>
+  <text x="150" y="242" text-anchor="middle" font-size="8" fill="#c5b8e8" letter-spacing="1">Sabtu, 14 Maret 2026</text>
+
+  <!-- Countdown -->
+  <rect x="40" y="256" width="220" height="42" rx="8" fill="white" opacity=".65"/>
+  <text x="80" y="272" text-anchor="middle" font-size="17" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">32</text>
+  <text x="80" y="289" text-anchor="middle" font-size="6" fill="#b07a9a">Hari</text>
+  <text x="115" y="281" text-anchor="middle" font-size="13" fill="#c5b8e8">:</text>
+  <text x="150" y="272" text-anchor="middle" font-size="17" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">08</text>
+  <text x="150" y="289" text-anchor="middle" font-size="6" fill="#b07a9a">Jam</text>
+  <text x="185" y="281" text-anchor="middle" font-size="13" fill="#c5b8e8">:</text>
+  <text x="220" y="272" text-anchor="middle" font-size="17" fill="#f4a7b9" font-family="Georgia,serif" font-weight="bold">45</text>
+  <text x="220" y="289" text-anchor="middle" font-size="6" fill="#b07a9a">Menit</text>
+
+  <!-- Events -->
+  <rect x="30" y="310" width="115" height="72" rx="6" fill="white" opacity=".75" stroke="#f4a7b9" stroke-width=".7"/>
+  <text x="87" y="331" text-anchor="middle" font-size="16" fill="#f4a7b9">🌙</text>
+  <text x="87" y="348" text-anchor="middle" font-size="8" fill="#b07a9a" font-family="Georgia,serif">Akad Nikah</text>
+  <text x="87" y="362" text-anchor="middle" font-size="7" fill="#b07a9a" opacity=".65">08.00 WIB</text>
+  <text x="87" y="374" text-anchor="middle" font-size="6" fill="#c5b8e8" opacity=".7">Grand Ballroom</text>
+
+  <rect x="155" y="310" width="115" height="72" rx="6" fill="white" opacity=".75" stroke="#c5b8e8" stroke-width=".7"/>
+  <text x="212" y="331" text-anchor="middle" font-size="16" fill="#c5b8e8">🌸</text>
+  <text x="212" y="348" text-anchor="middle" font-size="8" fill="#b07a9a" font-family="Georgia,serif">Resepsi</text>
+  <text x="212" y="362" text-anchor="middle" font-size="7" fill="#b07a9a" opacity=".65">11.00 WIB</text>
+  <text x="212" y="374" text-anchor="middle" font-size="6" fill="#c5b8e8" opacity=".7">Hotel Mulia</text>
+
+  <!-- Dresscode pill -->
+  <rect x="90" y="396" width="120" height="20" rx="10" fill="#f4a7b9" opacity=".25" stroke="#f4a7b9" stroke-width=".8"/>
+  <text x="150" y="410" text-anchor="middle" font-size="8" fill="#b07a9a">👗 Dresscode · Dusty Rose</text>
+
+  <!-- Gallery row -->
+  <rect x="30" y="426" width="52" height="40" rx="4" fill="#fce4ec" stroke="#f4a7b9" stroke-width=".5"/>
+  <rect x="89" y="426" width="52" height="40" rx="4" fill="#f3e8ff" stroke="#c5b8e8" stroke-width=".5"/>
+  <rect x="148" y="426" width="52" height="40" rx="4" fill="#e0f5f3" stroke="#98d4cf" stroke-width=".5"/>
+  <rect x="207" y="426" width="63" height="40" rx="4" fill="#fdf6ef" stroke="#f4a7b9" stroke-width=".5"/>
+  <text x="56" y="450" text-anchor="middle" font-size="14" opacity=".3">🌸</text>
+  <text x="115" y="450" text-anchor="middle" font-size="14" opacity=".3">🌷</text>
+  <text x="174" y="450" text-anchor="middle" font-size="14" opacity=".3">🌺</text>
+  <text x="238" y="450" text-anchor="middle" font-size="14" opacity=".3">🌼</text>
+
+  <text x="150" y="484" text-anchor="middle" font-size="7" fill="#b07a9a" letter-spacing="2" opacity=".65">✿ PREMIUM · PASTEL PATISSERIE</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500" width="300" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff1f8"/>
+      <stop offset="50%" stop-color="#ffe8f4"/>
+      <stop offset="100%" stop-color="#fde7f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="500" fill="url(#bg)" rx="16"/>
+
+  <!-- Bubbly colorful circles bg -->
+  <circle cx="30" cy="60" r="28" fill="#f9a8d4" opacity=".2"/>
+  <circle cx="270" cy="80" r="22" fill="#a5f3fc" opacity=".18"/>
+  <circle cx="20" cy="300" r="32" fill="#bbf7d0" opacity=".15"/>
+  <circle cx="280" cy="320" r="25" fill="#fde68a" opacity=".18"/>
+  <circle cx="150" cy="490" r="40" fill="#c4b5fd" opacity=".12"/>
+
+  <!-- Emoji deco scattered -->
+  <text x="18" y="58" font-size="22" opacity=".35">🌸</text>
+  <text x="255" y="40" font-size="18" opacity=".3" transform="rotate(20,255,40)">✨</text>
+  <text x="12" y="280" font-size="20" opacity=".28">🌈</text>
+  <text x="258" y="310" font-size="18" opacity=".3">🎀</text>
+  <text x="260" y="460" font-size="16" opacity=".28">🌟</text>
+
+  <!-- Header -->
+  <text x="150" y="38" text-anchor="middle" font-size="8" fill="#f472b6" letter-spacing="2">🌸 CERAH 3D WEDDING 🌸</text>
+
+  <!-- 3D photo frame with colorful border -->
+  <rect x="65" y="50" width="170" height="180" rx="16" fill="white" stroke="#f9a8d4" stroke-width="3"/>
+  <rect x="68" y="53" width="164" height="174" rx="13" fill="#fff0f8"/>
+  <!-- 3D shadow -->
+  <rect x="70" y="56" width="160" height="170" rx="11" fill="#fce7f3" opacity=".5"/>
+  <ellipse cx="150" cy="186" rx="38" ry="40" fill="#fce7f3"/>
+  <circle cx="150" cy="148" r="28" fill="#fce7f3"/>
+  <!-- Color accent dots on frame -->
+  <circle cx="65" cy="50" r="4" fill="#f472b6"/>
+  <circle cx="235" cy="50" r="4" fill="#38bdf8"/>
+  <circle cx="65" cy="230" r="4" fill="#4ade80"/>
+  <circle cx="235" cy="230" r="4" fill="#fbbf24"/>
+
+  <!-- Names bubbly -->
+  <text x="150" y="262" text-anchor="middle" font-size="17" fill="#db2777" font-family="Georgia,serif" font-style="italic">Siti &amp; Ahmad</text>
+  <text x="150" y="278" text-anchor="middle" font-size="8" fill="#f472b6" letter-spacing="1">Sabtu, 14 Maret 2026</text>
+
+  <!-- Colorful pills -->
+  <rect x="55" y="290" width="70" height="18" rx="9" fill="#f9a8d4" opacity=".6"/>
+  <text x="90" y="303" text-anchor="middle" font-size="7.5" fill="white">🌙 Akad</text>
+  <rect x="132" y="290" width="40" height="18" rx="9" fill="#93c5fd" opacity=".5"/>
+  <text x="152" y="303" text-anchor="middle" font-size="7.5" fill="white">08:00</text>
+  <rect x="180" y="290" width="65" height="18" rx="9" fill="#6ee7b7" opacity=".5"/>
+  <text x="212" y="303" text-anchor="middle" font-size="7.5" fill="white">Grand BLR</text>
+
+  <rect x="55" y="316" width="70" height="18" rx="9" fill="#c4b5fd" opacity=".6"/>
+  <text x="90" y="329" text-anchor="middle" font-size="7.5" fill="white">🌸 Resepsi</text>
+  <rect x="132" y="316" width="40" height="18" rx="9" fill="#fca5a5" opacity=".5"/>
+  <text x="152" y="329" text-anchor="middle" font-size="7.5" fill="white">11:00</text>
+  <rect x="180" y="316" width="65" height="18" rx="9" fill="#fde68a" opacity=".6"/>
+  <text x="212" y="329" text-anchor="middle" font-size="7.5" fill="#b45309">Hotel Mulia</text>
+
+  <!-- Countdown bubbly -->
+  <rect x="30" y="346" width="240" height="50" rx="14" fill="white" opacity=".75"/>
+  <text x="75" y="364" text-anchor="middle" font-size="20" fill="#f472b6" font-family="Georgia,serif" font-weight="bold">32</text>
+  <text x="75" y="383" text-anchor="middle" font-size="6.5" fill="#f9a8d4">Hari</text>
+  <text x="110" y="374" text-anchor="middle" font-size="16" fill="#f9a8d4">:</text>
+  <text x="150" y="364" text-anchor="middle" font-size="20" fill="#60a5fa" font-family="Georgia,serif" font-weight="bold">08</text>
+  <text x="150" y="383" text-anchor="middle" font-size="6.5" fill="#93c5fd">Jam</text>
+  <text x="190" y="374" text-anchor="middle" font-size="16" fill="#f9a8d4">:</text>
+  <text x="225" y="364" text-anchor="middle" font-size="20" fill="#4ade80" font-family="Georgia,serif" font-weight="bold">45</text>
+  <text x="225" y="383" text-anchor="middle" font-size="6.5" fill="#86efac">Menit</text>
+
+  <!-- Gallery bubbly -->
+  <rect x="28" y="408" width="58" height="48" rx="10" fill="#fce7f3"/>
+  <rect x="92" y="408" width="58" height="48" rx="10" fill="#e0f2fe"/>
+  <rect x="156" y="408" width="58" height="48" rx="10" fill="#dcfce7"/>
+  <rect x="220" y="408" width="52" height="48" rx="10" fill="#fef9c3"/>
+  <text x="57" y="437" text-anchor="middle" font-size="18" opacity=".3">🌸</text>
+  <text x="121" y="437" text-anchor="middle" font-size="18" opacity=".3">💍</text>
+  <text x="185" y="437" text-anchor="middle" font-size="18" opacity=".3">🥂</text>
+  <text x="246" y="437" text-anchor="middle" font-size="16" opacity=".3">🌸</text>
+
+  <!-- RSVP colorful -->
+  <rect x="70" y="466" width="160" height="22" rx="11" fill="#f472b6"/>
+  <text x="150" y="481" text-anchor="middle" font-size="8.5" fill="white">Konfirmasi Hadir ✨</text>
+</svg>

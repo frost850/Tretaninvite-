@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect x="60" y="60" width="680" height="480" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <text x="400" y="240" font-family="Arial, sans-serif" font-size="80" fill="rgba(255,255,255,0.95)" text-anchor="middle">🎊</text>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="rgba(255,255,255,0.9)" text-anchor="middle">Penuh Keceriaan</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.6)" text-anchor="middle">Birthday Gallery</text>
+</svg>

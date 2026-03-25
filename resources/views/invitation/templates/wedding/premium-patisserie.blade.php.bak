@@ -1,0 +1,500 @@
+﻿@extends('invitation.layout')
+
+@push('fonts')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+@endpush
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/vip-patisserie.css') }}">
+<style>
+/* ──── Graduation Premium Overrides ──────────────────────────── */
+:root {
+    --grad-gold:   #c9a84c;
+    --grad-indigo: #4c5fc9;
+    --grad-deep:   #2d2860;
+    --grad-cream:  #faf7f0;
+    --grad-lavend: #ede8f8;
+}
+#vp-cover .vp-cover-eyebrow { color: var(--grad-gold); letter-spacing: .35em; }
+#vp-cover .vp-cover-btn     { background: linear-gradient(135deg, #c9a84c, #e2c76a); color: #1a1500; }
+.vp-grad-hero-photo {
+    width: clamp(160px, 42vw, 220px);
+    aspect-ratio: 3/4;
+    border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+    overflow: hidden;
+    border: 4px solid var(--grad-gold);
+    box-shadow: 0 12px 48px rgba(201,168,76,.35);
+    margin: 0 auto 28px;
+    background: linear-gradient(160deg, var(--grad-lavend), var(--grad-cream));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+}
+.vp-grad-hero-photo img { width:100%; height:100%; object-fit:cover; }
+.vp-grad-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: .03em;
+    line-height: 1.1;
+    color: var(--txt);
+    margin: 0;
+}
+.vp-grad-subtitle {
+    font-family: var(--sans);
+    font-size: clamp(.75rem, 2.2vw, .9rem);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--grad-gold);
+    margin: 12px 0 4px;
+}
+.vp-grad-univ {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(.95rem, 2.5vw, 1.15rem);
+    color: var(--txt-dim);
+    margin-bottom: 4px;
+}
+.vp-grad-prodi {
+    font-family: var(--sans);
+    font-size: clamp(.8rem, 2vw, .88rem);
+    color: var(--txt-dim);
+    opacity: .75;
+    margin-bottom: 20px;
+}
+.vp-grad-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 40px 24px;
+}
+.vp-grad-profile-photo {
+    width: clamp(140px,36vw,200px);
+    aspect-ratio: 3/4;
+    border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+    overflow: hidden;
+    border: 3px solid var(--grad-gold);
+    box-shadow: 0 8px 32px rgba(201,168,76,.25);
+    background: linear-gradient(160deg, var(--grad-lavend), var(--grad-cream));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.vp-grad-profile-photo img { width:100%; height:100%; object-fit:cover; }
+.vp-grad-profile-role {
+    font-family: var(--sans);
+    font-size: .72rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--grad-gold);
+}
+.vp-grad-profile-name {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
+    font-weight: 600;
+    color: var(--txt);
+    margin: 6px 0 2px;
+}
+.vp-grad-profile-full {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(.9rem, 2.4vw, 1.05rem);
+    color: var(--txt-dim);
+    margin-bottom: 10px;
+}
+.vp-grad-profile-meta {
+    font-family: var(--sans);
+    font-size: .82rem;
+    color: var(--txt-dim);
+    text-align: center;
+    line-height: 1.8;
+}
+.vp-grad-profile-meta strong { color: var(--txt); }
+.vp-grad-profile-par {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--txt-dim);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.85;
+}
+.vp-ipk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f5e9c8, #ede0b0);
+    border: 1px solid var(--grad-gold);
+    color: #7a5a10;
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: var(--sans);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(201,168,76,.2);
+    margin-top: 6px;
+}
+.vp-cover-seal { filter: hue-rotate(200deg); }
+#wisudawan .vp-pill, #acara .vp-pill {
+    background: linear-gradient(135deg, #f5e9c8, #ede0b0);
+    color: #7a5a10;
+    border: 1px solid rgba(201,168,76,.4);
+}
+</style>
+@endpush
+
+@php
+    $isDemo     = !empty($isPreview);
+    $demoPhotos = $demoPhotos ?? [];
+
+    $gradName  = $wedding->bride_name     ?? 'Aisyah Azzahra';
+    $gradFull  = $wedding->bride_fullname ?? '';
+    $isFemale  = ($wedding->bride_gender ?? 'female') !== 'male';
+    $gradTitle = $isFemale ? 'Wisudawati' : 'Wisudawan';
+    $eventDate = $wedding->event_date ?? now()->addDays(60);
+    $location  = $wedding->location   ?? 'Gedung Wisuda Universitas';
+    $university = $wedding->akad_location ?? '';
+    $prodi      = $wedding->akad_time    ?? '';
+    $ipk        = $wedding->bride_age    ?? '';
+
+    $coverPhoto = null;
+    if (!empty($wedding->cover_photo))     $coverPhoto = asset('storage/' . $wedding->cover_photo);
+    elseif (!empty($wedding->bride_photo)) $coverPhoto = asset('storage/' . $wedding->bride_photo);
+
+    $gradPhotoUrl = !empty($wedding->bride_photo) ? asset('storage/' . $wedding->bride_photo) : null;
+
+    $gallPhotos = [];
+    if ($isDemo && !empty($demoPhotos)) {
+        $gallPhotos = $demoPhotos;
+    } elseif (($wedding->galleries ?? collect())->count() > 0) {
+        $gallPhotos = $wedding->galleries->map(fn($g) => asset('storage/' . $g->path))->toArray();
+    }
+
+    $musicUrl = null; $ytVideoId = null; $rawMusicUrl = null;
+    if (!empty($wedding->music_file))    $rawMusicUrl = asset('storage/' . $wedding->music_file);
+    elseif (!empty($wedding->music_url)) $rawMusicUrl = $wedding->music_url;
+    if ($rawMusicUrl) {
+        if (preg_match('/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_\-]{11})/', $rawMusicUrl, $ytm)) {
+            $ytVideoId = $ytm[1];
+        } else {
+            $musicUrl = $rawMusicUrl;
+        }
+    }
+    $demoMusicOnly = $isDemo && !$musicUrl && !$ytVideoId;
+@endphp
+
+@section('content')
+
+<canvas id="vp-petals" aria-hidden="true"></canvas>
+
+{{-- ══ COVER ══ --}}
+<div id="vp-cover" onclick="vpOpenInvitation()" role="button" aria-label="Buka Undangan">
+
+    <div class="vp-cover-bg"
+        @if($coverPhoto) style="background-image:url('{{ $coverPhoto }}');"
+        @else style="background:linear-gradient(160deg,#f0ecff,#ede8f8,#faf7f0);" @endif></div>
+    <div class="vp-cover-vignette"></div>
+
+    @php
+        $petalPositions = [
+            ['2rem','3rem','2.5s',.1],['90%','6rem','3.2s',.08],
+            ['12%','75%','4.0s',.12],['78%','80%','2.8s',.09],
+            ['50%','15%','3.6s',.07],['35%','88%','3.0s',.1],
+            ['65%','50%','4.4s',.06],['8%','40%','2.6s',.09],
+        ];
+        $petalEmojis = ['🌸','🌷','✨','🎓','⭐'];
+    @endphp
+    @foreach($petalPositions as $i => $pp)
+    <div class="vp-cover-petal"
+         style="left:{{ $pp[0] }};top:{{ $pp[1] }};animation-duration:{{ $pp[2] }};animation-delay:{{ $i * .45 }}s;opacity:{{ $pp[3] }};">
+        {{ $petalEmojis[$i % count($petalEmojis)] }}
+    </div>
+    @endforeach
+
+    <div class="vp-cover-box">
+        <span class="vp-cover-seal">🎓</span>
+        <div class="vp-cover-eyebrow">Undangan Wisuda</div>
+
+        @if(!empty($guest))
+        <div style="margin-bottom:20px;">
+            <div class="vp-cover-kepada-lbl">Kepada Yang Terhormat</div>
+            <div class="vp-cover-guest-name">{{ $guest->guest_name }}</div>
+        </div>
+        @endif
+
+        <div class="vp-cover-deco"><span>✿</span><span>✿</span><span>✿</span></div>
+
+        <div class="vp-cover-names" style="font-size:clamp(1.5rem,6vw,2.5rem);">
+            {{ $gradName }}
+        </div>
+        @if($university)
+        <div style="font-family:var(--serif);font-style:italic;font-size:clamp(.85rem,2.5vw,1rem);color:rgba(255,255,255,.75);margin-top:6px;">
+            {{ $university }}
+        </div>
+        @endif
+
+        @if($eventDate)
+        <div class="vp-cover-date">{{ $eventDate->locale('id')->translatedFormat('d F Y') }}</div>
+        @endif
+
+        <button class="vp-cover-btn" type="button">🎓 &nbsp; Buka Undangan</button>
+    </div>
+</div>
+
+{{-- ══ MAIN ══ --}}
+<div id="vp-main">
+
+    <nav class="vp-nav" id="vp-nav" aria-label="Navigasi">
+        <a href="#wisudawan">{{ $gradTitle }}</a>
+        <a href="#acara">Acara</a>
+        @if(($wedding->has_gallery || !empty($isPreview)) && count($gallPhotos) > 0)<a href="#galeri">Galeri</a>@endif
+    </nav>
+
+    {{-- ══ HERO ══ --}}
+    <section id="vp-hero">
+        <div class="vp-hero-bg"></div>
+        <span class="vp-hero-corner tl">🎓</span>
+        <span class="vp-hero-corner tr">✨</span>
+        <span class="vp-hero-corner bl">🌸</span>
+        <span class="vp-hero-corner br">🌷</span>
+
+        <div class="vp-grad-hero-photo vp-rv">
+            @if($gradPhotoUrl)
+                <img src="{{ $gradPhotoUrl }}" alt="{{ $gradName }}" loading="eager">
+            @else
+                🎓
+            @endif
+        </div>
+
+        <div class="vp-grad-subtitle vp-rv">{{ $isFemale ? 'Wisudawati' : 'Wisudawan' }}</div>
+        <div class="vp-grad-title vp-rv">{{ $gradName }}</div>
+
+        @if($university)
+        <div class="vp-grad-univ vp-rv">{{ $university }}</div>
+        @endif
+        @if($prodi)
+        <div class="vp-grad-prodi vp-rv">{{ $prodi }}</div>
+        @endif
+
+        @if($eventDate)
+        <div class="vp-hero-date-wrap vp-rv" style="margin-top:20px;">
+            <div class="vp-hero-date-line"></div>
+            <div class="vp-hero-date">{{ $eventDate->locale('id')->translatedFormat('l, d F Y') }}</div>
+            <div class="vp-hero-date-line r"></div>
+        </div>
+        @endif
+        <div class="vp-hero-scroll vp-rv">✿ &nbsp; Gulir ke bawah</div>
+    </section>
+
+    {{-- ══ OPENING TEXT ══ --}}
+    @if(!empty($wedding->opening_text))
+    <section class="vp-sec vp-sec-rose" style="padding:64px 24px;">
+        <div class="vp-opening-card vp-rv">
+            <p>{{ $wedding->opening_text }}</p>
+        </div>
+    </section>
+    @else
+    <section class="vp-sec vp-sec-rose" style="padding:64px 24px;">
+        <div class="vp-opening-card vp-rv">
+            <p>Dengan penuh syukur kehadirat Allah SWT atas segala rahmat dan karunia-Nya,<br>kami dengan bangga mengumumkan kelulusan {{ $isFemale ? 'putri' : 'putra' }} kami.<br><br>Semoga ilmu yang diraih menjadi berkah dan manfaat bagi sesama.</p>
+        </div>
+    </section>
+    @endif
+
+    <div class="vp-sep" aria-hidden="true"><span class="vp-sep-icon">🎓</span></div>
+
+    {{-- ══ PROFIL WISUDAWAN ══ --}}
+    <section class="vp-sec vp-sec-rose" id="wisudawan">
+        <div class="vp-rv"><span class="vp-pill">🎓 Yang Berbahagia</span></div>
+        <h2 class="vp-title vp-rv">{{ $gradTitle }}</h2>
+        <p class="vp-sub vp-rv">Dengan penuh rasa syukur atas pencapaian yang luar biasa ini</p>
+
+        <div class="vp-grad-profile vp-rv">
+            <div class="vp-grad-profile-photo">
+                @if($gradPhotoUrl)
+                    <img src="{{ $gradPhotoUrl }}" alt="{{ $gradName }}">
+                @else 🎓 @endif
+            </div>
+            <div class="vp-grad-profile-role">{{ $isFemale ? 'Wisudawati' : 'Wisudawan' }}</div>
+            <div class="vp-grad-profile-name">{{ $gradName }}</div>
+
+            @if($gradFull && $gradFull !== $gradName)
+            <div class="vp-grad-profile-full">{{ $gradFull }}</div>
+            @endif
+
+            <div class="vp-grad-profile-meta">
+                @if($university)<strong>{{ $university }}</strong><br>@endif
+                @if($prodi)<span>{{ $prodi }}</span><br>@endif
+            </div>
+
+            @if($ipk)
+            <div class="vp-ipk-badge">📜 &nbsp; {{ $ipk }}</div>
+            @endif
+
+            @php
+                $_parentLine = '';
+                if (!empty($wedding->bride_father) || !empty($wedding->bride_mother)) {
+                    $_parentLine = ($wedding->bride_father ?? '') . ((!empty($wedding->bride_father) && !empty($wedding->bride_mother)) ? ' & ' : '') . ($wedding->bride_mother ?? '');
+                } elseif (!empty($wedding->bride_parent)) {
+                    $_parentLine = $wedding->bride_parent;
+                }
+            @endphp
+            @if($_parentLine)
+            <div class="vp-grad-profile-par">
+                {{ $isFemale ? 'Putri' : 'Putra' }} dari<br>
+                <strong>{{ $_parentLine }}</strong>
+            </div>
+            @endif
+
+            @if(!empty($wedding->bride_wa))
+            <div class="vp-couple-social-row" style="margin-top:14px;">
+                <a href="https://wa.me/62{{ ltrim($wedding->bride_wa,'0') }}" target="_blank" rel="noopener" class="vp-couple-social vp-couple-wa">💬 WhatsApp</a>
+            </div>
+            @endif
+        </div>
+    </section>
+
+    <div class="vp-sep" aria-hidden="true"><span class="vp-sep-icon">🌸</span></div>
+
+    {{-- ══ DETAIL ACARA ══ --}}
+    <section class="vp-sec vp-sec-rose" id="acara">
+        <div class="vp-rv"><span class="vp-pill">📜 Rangkaian Acara</span></div>
+        <h2 class="vp-title vp-rv">Hari Bahagia</h2>
+        <p class="vp-sub vp-rv">Dengan penuh kegembiraan kami mengundang Anda untuk hadir merayakan hari istimewa ini</p>
+
+        <div class="vp-event-grid vp-rv">
+            <div class="vp-event-card">
+                <span class="vp-event-icon">🎓</span>
+                <div class="vp-event-type">Prosesi Wisuda</div>
+                <div class="vp-event-name">{{ $wedding->customText('ceremony_title', 'Upacara Wisuda') }}</div>
+                <div class="vp-event-row">
+                    <span class="vp-event-row-dot">✿</span>
+                    <div>
+                        <strong>{{ $eventDate->locale('id')->translatedFormat('l, d F Y') }}</strong>
+                        @if(!empty($wedding->reception_time))
+                        &nbsp; {{ $wedding->reception_time }}
+                        @endif
+                    </div>
+                </div>
+                <div class="vp-event-row">
+                    <span class="vp-event-row-dot">📍</span>
+                    <div>{{ $wedding->akad_location ?? $location }}</div>
+                </div>
+            </div>
+
+            @if(!empty($wedding->reception_location))
+            <div class="vp-event-card">
+                <span class="vp-event-icon">🌸</span>
+                <div class="vp-event-type">Syukuran</div>
+                <div class="vp-event-name">{{ $wedding->customText('reception_title', 'Tasyakuran Wisuda') }}</div>
+                <div class="vp-event-row">
+                    <span class="vp-event-row-dot">✿</span>
+                    <div>
+                        <strong>{{ \Carbon\Carbon::parse($wedding->reception_date ?? $eventDate)->locale('id')->translatedFormat('l, d F Y') }}</strong>
+                        &nbsp; {{ trim(preg_replace('/\s*wib\s*$/i', '', $wedding->reception_time ?? '13.00 – 17.00')) }} WIB
+                    </div>
+                </div>
+                <div class="vp-event-row">
+                    <span class="vp-event-row-dot">📍</span>
+                    <div>{{ $wedding->reception_location }}</div>
+                </div>
+            </div>
+            @endif
+        </div>
+
+        @if(!empty($wedding->dresscode))
+        <div style="margin-top:28px;">
+            <span class="vp-dresscode-badge vp-rv">👔 &nbsp; Dress Code &nbsp;·&nbsp; <em>{{ $wedding->dresscode }}</em></span>
+        </div>
+        @endif
+
+        @php
+            $_calTitle = 'Wisuda ' . $gradName . ($university ? ' – ' . $university : '');
+            $_calStart = $eventDate->format('Ymd') . 'T080000';
+            $_calEnd   = $eventDate->format('Ymd') . 'T120000';
+            $_calUrl   = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' . urlencode($_calTitle) . '&dates=' . $_calStart . '/' . $_calEnd . '&location=' . urlencode($location) . '&sf=true&output=xml';
+        @endphp
+        <div style="margin-top:22px;">
+            <a href="{{ $_calUrl }}" target="_blank" rel="noopener" class="vp-cal-btn vp-rv">
+                📅 &nbsp; Tambah ke Google Calendar
+            </a>
+        </div>
+    </section>
+
+    {{-- ══ GALERI ══ --}}
+    @if(($wedding->has_gallery || !empty($isPreview)) && count($gallPhotos) > 0)
+    <div class="vp-sep" aria-hidden="true"><span class="vp-sep-icon">✿</span></div>
+    <section class="vp-gallery-sec" id="galeri">
+        <div class="vp-gallery-header">
+            <div class="vp-rv"><span class="vp-pill">📷 Momen Berharga</span></div>
+            <h2 class="vp-title vp-rv">Galeri Foto</h2>
+            <p class="vp-sub vp-rv" style="margin-top:6px;">Klik foto untuk memperbesar</p>
+        </div>
+        @include('invitation.partials.gallery-vip-royal', [
+            'gallPhotos'    => $gallPhotos,
+            'bridePhotoUrl' => $gradPhotoUrl ?? null,
+            'groomPhotoUrl' => null,
+        ])
+    </section>
+    @endif
+
+    {{-- ══ UCAPAN SELAMAT ══ --}}
+    @if(!empty($wedding->bride_wa))
+    <section class="vp-sec vp-rv" style="text-align:center;padding-top:56px;padding-bottom:56px;">
+        <span class="vp-pill">💌 Sampaikan Ucapan</span>
+        <h2 class="vp-title" style="margin-top:18px;">Kirim Ucapan Selamat</h2>
+        <p class="vp-sub" style="margin-bottom:28px;">Doa dan ucapan Anda sangat berarti bagi kami. Sampaikan langsung melalui WhatsApp.</p>
+        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $wedding->bride_wa) }}?text={{ rawurlencode('Selamat atas kelulusan ' . $gradName . '! Semoga ilmu yang diraih menjadi berkah dan membawa kesuksesan. 🎓') }}"
+           target="_blank" rel="noopener"
+           class="vp-map-btn" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;">
+            💬 &nbsp; Kirim Ucapan via WhatsApp
+        </a>
+    </section>
+    @endif
+
+    {{-- ══ FOOTER ══ --}}
+    <footer class="vp-footer">
+        <div class="vp-footer-floral">🎓 ✨ 🌸 ✨ 🎓</div>
+        <div class="vp-footer-names">{{ $gradName }}</div>
+        @if($eventDate)
+        <div class="vp-footer-note">
+            {{ $eventDate->locale('id')->translatedFormat('l, d F Y') }}<br>
+            @if($university){{ $university }}<br>@endif
+            Dengan penuh rasa syukur dan kebanggaan
+        </div>
+        @endif
+        <div class="vp-floral-div">✿</div>
+        <div class="vp-footer-credit">Graduation Invitation · TretanInvite {{ date('Y') }}</div>
+    </footer>
+
+</div>{{-- /#vp-main --}}
+
+<button id="vp-theme-btn" title="Light / Dark Mode" aria-label="Toggle tema">🌙</button>
+
+<button class="vp-music-btn" id="vp-music-btn"
+        title="Putar / Pause Musik" aria-label="Musik"
+        style="{{ $demoMusicOnly ? 'display:flex;opacity:.45;cursor:default;' : 'display:none;' }}">♩</button>
+
+@if($ytVideoId)
+<div style="position:fixed;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;top:-9999px;" aria-hidden="true">
+    <div id="vp-yt-player"></div>
+</div>
+@endif
+
+@endsection
+
+@push('scripts')
+@if($ytVideoId)
+<script src="https://www.youtube.com/iframe_api" async defer></script>
+@endif
+<script>
+window.vpMusicUrl      = '{{ $musicUrl ?? "" }}';
+window.vpYtVideoId     = '{{ $ytVideoId ?? "" }}';
+window.vpDemoMusicOnly = {{ $demoMusicOnly ? 'true' : 'false' }};
+</script>
+<script src="{{ asset('js/vip-patisserie.js') }}" defer></script>
+@endpush
